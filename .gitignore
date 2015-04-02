@@ -3,5 +3,12 @@
 /output
 /.project
 /.pydevproject
+<<<<<<< Upstream, based on 200
 .settings
+<<<<<<< Upstream, based on dev
 /*.pyc
+=======
+=======
+/Reservoir_SPHY.xls
+>>>>>>> 46037ee Bug fix for calculation of fractional rain. In the previous version the fractional rain was calculated by multiplying with the rain with the rainfraction. This was an error, and it has been fixed by multiplying the rain with (1-glacfrac).
+>>>>>>> 850b5e5 Bug fix for calculation of fractional rain. In the previous version the fractional rain was calculated by multiplying with the rain with the rainfraction. This was an error, and it has been fixed by multiplying the rain with (1-glacfrac).

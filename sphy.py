@@ -2,7 +2,7 @@
 # THE SPATIAL PROCESSES IN HYDROLOGY (SPHY) MODEL
 # AUTHOR: W. Terink
 # DATE LATEST CHANGE: 15-04-2014
-# VERSION 2.0.0
+# VERSION 2.0.1
 #***********************************************************************************************
 
 # This model uses the sphy_config.cfg as configuration file.
@@ -22,7 +22,7 @@ class sphy(pcrm.DynamicModel):
 		# Print model info
 		print 	'The Spatial Processes in HYdrology (SPHY) model is ' \
 				'developed by Wilco Terink, Wageningen, The Netherlands'
-		print   'Version 2.0.0'
+		print   'Version 2.0.1'
 		print ' '
 
 		# Read the modules to be used
@@ -625,7 +625,7 @@ class sphy(pcrm.DynamicModel):
 			self.TotalSnowStore = 0
 		#-Report Rain
 		self.reporting.reporting(self, pcr, 'TotRain', Rain)
-		self.reporting.reporting(self, pcr, 'TotRainF', Rain * RainFrac)
+		self.reporting.reporting(self, pcr, 'TotRainF', Rain * (1-self.GlacFrac))
 		
 		#-Glacier calculations
 		if self.GlacFLAG == 1:
