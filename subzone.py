@@ -25,15 +25,17 @@
 __author__ = "Wilco Terink"
 __copyright__ = "Wilco Terink"
 __license__ = "GPL"
-__version__ = "2.0.3"
+__version__ = "2.1.0"
 __email__ = "terinkw@gmail.com"
 __date__ ='16 October 2018'
 ############################################################################################
 
 #-Function to calculate capillary rise
-def CapilRise(pcr, etreddry, subfield, subsat, subwater, capmax):
-    subrelwat = pcr.max(pcr.min((subwater - subfield) / (subsat - subfield), 1), 0)
-    caprise = pcr.min(subwater, capmax * (1 - etreddry) * subrelwat)
+def CapilRise(pcr, subfield, subwater, capmax, rootwater, rootsat, rootfield):
+    subrelwat = pcr.max(pcr.min((subwater / subfield), 1), 0)
+    rootrelwat = pcr.max(pcr.min((rootwater / rootfield), 1), 0)
+    caprise = pcr.min(subwater, capmax * (1 - rootrelwat) * subrelwat)
+    caprise = pcr.min(caprise, rootsat - rootwater)  # adding caprise can not exceed saturated rootwater content
     return caprise
 
 #-Function to calculate percolation from subsoil (only if groundwater module is used)

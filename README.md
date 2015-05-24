@@ -4,6 +4,10 @@ The Spatial Processes in Hydrology (SPHY) model is a hydrological modeling tool 
 
 <img src="https://github.com/WilcoTerink/SPHY/blob/master/SPHY_concepts.jpg" alt="SPHY model concepts" height="500" width="500">
 
+<b>Changes with respect to version 2.0.3</b></br>
+RESERVOIR module is split into two modules, being a LAKE and a RESERVOIR module. The advantage is that these modules can run independently from each other.
+The new RESERVOIR module allows the implementation of a simple or advanced reservoir, whereas the advanced reservoir allows for operational reservoir management.
+
 <b>SPHY model user group</b></br>
 A user group for the SPHY model is available in <a href="https://groups.google.com/forum/#!forum/sphy-model-user" target="_blank">Google Groups</a>. You can use this group to post Questions and Answers related to the source code, available plugins, input and output formats, calibration, applications, and suggestions for improvements.
 
@@ -18,7 +22,9 @@ A user group for the SPHY model is available in <a href="https://groups.google.c
 
 <li><a href="https://github.com/WilcoTerink/SPHY/blob/master/SPHY_GUIs.pdf" target="_blank">Terink, W., A.F. Lutz, W.W. Immerzeel. 2015. SPHY: Spatial Processes in HYdrology. Graphical User-Interfaces (GUIs). FutureWater Report 143.</a></li>
 
-<li><a href="https://www.sciencedirect.com/science/article/pii/S002216941830372X" target="_blank">Terink, W., H. Leijnse, G.A.P. van den Eertwegh, R. Uijlenhoet. 2018. Spatial resolutions in areal rainfall estimation and their impact on hydrological simulations of a lowland catchment. Journal of Hydrology - Volume 563 - Pages 319-335. DOI: 10.1016/j.jhydrol.2018.05.045.</a></li> 
+<li><a href="https://github.com/WilcoTerink/SPHY/blob/master/SPHY_reservoir_module.pdf" target="_blank">Terink, W., P. Droogers, G.W.H. Simons. 2015. Reservoir module in SPHY. Implemented in SPHY v2.1 FutureWater Report 136.</a></li>
+
+<li><a href="https://www.sciencedirect.com/science/article/pii/S002216941830372X" target="_blank">Terink, W., H. Leijnse, G.A.P. van den Eertwegh, R. Uijlenhoet. 2018. Spatial resolutions in areal rainfall estimation and their impact on hydrological simulations of a lowland catchment. Journal of Hydrology - Volume 563 - Pages 319-335. DOI: 10.1016/j.jhydrol.2018.05.045.</a></li>
 </ul>
 
 <b>Copyright</b></br>

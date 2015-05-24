@@ -3,18 +3,5 @@
 /output
 /.project
 /.pydevproject
-<<<<<<< Upstream, based on 200
 .settings
-<<<<<<< Upstream, based on dev
 /*.pyc
-=======
-/*.pyc
-=======
-<<<<<<< Upstream, based on dev2
-/Reservoir_SPHY.xls
-/*.pyc
-=======
-/*.pyc
->>>>>>> 53051e4 Fix in reporting function and bug fix in the calculation of snow storage and melt water stored in snow pack.
->>>>>>> 74256a3 Fix in reporting function and bug fix in the calculation of snow storage and melt water stored in snow pack.
->>>>>>> 58c1074 Fix in reporting function and bug fix in the calculation of snow storage and melt water stored in snow pack.
