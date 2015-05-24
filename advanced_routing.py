@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 # The Spatial Processes in HYdrology (SPHY) model:
 # A spatially distributed hydrological model that calculates soil-water and
 # cryosphere processes on a cell-by-cell basis.
@@ -25,9 +23,9 @@
 __author__ = "Wilco Terink"
 __copyright__ = "Wilco Terink"
 __license__ = "GPL"
-__version__ = "2.1.0"
+__version__ = "2.1"
 __email__ = "terinkw@gmail.com"
-__date__ ='16 October 2018'
+__date__ ='1 January 2017'
 ############################################################################################
 
 # Advanced routing that is used for reservoirs or lakes
