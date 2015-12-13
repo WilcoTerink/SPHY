@@ -8,7 +8,7 @@ def RootDrainage(pcr, rootwater, rootdrain, rootfield, rootsat, drainvel, rootTT
     rootexcess = pcr.max(rootwater - rootfield, 0)
     rootexcessfrac = rootexcess / (rootsat - rootfield)
     rootlat = rootexcessfrac * drainvel
-    rootdrainage = pcr.max(pcr.min(rootwater, (rootlat + rootdrain) * (1 - pcr.exp(-1 / rootTT))), 0)
+    rootdrainage = pcr.max(pcr.min(rootwater, rootlat * (1-pcr.exp(-1/rootTT)) + rootdrain * pcr.exp(-1/rootTT)), 0)
     return rootdrainage
 
 #-Function to calculate rootzone percolation
