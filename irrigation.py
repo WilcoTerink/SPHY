@@ -1,1 +1,0 @@
-print 'irrigation module imported'

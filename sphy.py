@@ -1,9 +1,34 @@
-#***********************************************************************************************
-# THE SPATIAL PROCESSES IN HYDROLOGY (SPHY) MODEL
-# AUTHOR: W. Terink
-# DATE LATEST CHANGE: 15-04-2014
-# VERSION 2.0.2
-#***********************************************************************************************
+# -*- coding: utf-8 -*-
+#
+# The Spatial Processes in HYdrology (SPHY) model:
+# A spatially distributed hydrological model that calculates soil-water and
+# cryosphere processes on a cell-by-cell basis.
+#
+# Copyright (C) 2013  Wilco Terink
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Email: terinkw@gmail.com
+
+#-Authorship information-###################################################################
+__author__ = "Wilco Terink"
+__copyright__ = "Wilco Terink"
+__license__ = "GPL"
+__version__ = "2.0.3"
+__email__ = "terinkw@gmail.com"
+__date__ ='16 October 2018'
+############################################################################################
 
 # This model uses the sphy_config.cfg as configuration file.
 
@@ -22,7 +47,7 @@ class sphy(pcrm.DynamicModel):
 		# Print model info
 		print 	'The Spatial Processes in HYdrology (SPHY) model is ' \
 				'developed by Wilco Terink, Wageningen, The Netherlands'
-		print   'Version 2.0.2'
+		print   'Version 2.0.3'
 		print ' '
 
 		# Read the modules to be used
@@ -31,7 +56,6 @@ class sphy(pcrm.DynamicModel):
 		self.RoutFLAG = config.getint('MODULES','RoutFLAG')
 		self.ResFLAG = config.getint('MODULES','ResFLAG')
 		self.DynVegFLAG = config.getint('MODULES','DynVegFLAG')
-		self.IrriFLAG = config.getint('MODULES','IrriFLAG')
 		self.GroundFLAG = config.getint('MODULES','GroundFLAG')
 		
 		# import the required modules
