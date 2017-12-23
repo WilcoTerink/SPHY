@@ -23,9 +23,9 @@
 __author__ = "Wilco Terink"
 __copyright__ = "Wilco Terink"
 __license__ = "GPL"
-__version__ = "2.1"
+__version__ = "2.2"
 __email__ = "terinkw@gmail.com"
-__date__ ='1 January 2017'
+__date__ ='23 December 2017'
 ############################################################################################
 
 # This model uses the sphy_config.cfg as configuration file.
@@ -35,6 +35,7 @@ import pandas as pd
 import pcraster as pcr
 import pcraster.framework as pcrm
 from pcraster._pcraster import Scalar
+import numpy as np
 
 tic = time.clock()
 
@@ -45,10 +46,10 @@ config.read('sphy_config.cfg')
 class sphy(pcrm.DynamicModel):
 	def __init__(self):
 		# Print model info
-        print    'The Spatial Processes in HYdrology (SPHY) model is ' \
-                'developed by Wilco Terink, Wageningen, The Netherlands'
-        print   'Version 2.2.0'
-        print ' '
+		print 	'The Spatial Processes in HYdrology (SPHY) model is ' \
+				'developed by Wilco Terink, Wageningen, The Netherlands'
+		print   'Version 2.2'
+		print ' '
 
 		#-Missing value definition
 		self.MV= -9999
@@ -80,9 +81,6 @@ class sphy(pcrm.DynamicModel):
 		if self.GlacFLAG == 1:
 			self.SnowFLAG = 1
 			self.GroundFLAG = 1
-# 			import glacier # glacier melting processes
-# 			self.glacier = glacier
-# 			del glacier
 		if self.SnowFLAG == 1:
 			import snow # snow melt processes
 			self.snow = snow
@@ -388,7 +386,6 @@ class sphy(pcrm.DynamicModel):
 				self.ResAdvanced = False
 	
 	def initial(self):
-
 		#-initial section
 		#-get the correct forcing file number, depending on the start date of your simulation
 		#-and the start date of the first forcing file in your forcing directory.
@@ -634,10 +631,12 @@ class sphy(pcrm.DynamicModel):
 			self.GlacID_flag = config.getint('REPORTING', 'GlacID_flag')
 			if self.GlacID_flag:
 				self.GlacVars = config.get('REPORTING', 'GlacID_report').split(',')  #-get the variables to report
-				glacid = sorted(self.GlacTable['GLAC_ID'].unique())  #-get the unique glacier ids
-				drange = pd.date_range(self.startdate, self.enddate, freq='D')
-				for p in self.GlacVars: #-make panda dataframes for each variable to report
-					setattr(self, p + '_Table', pd.DataFrame(index = drange, columns=glacid,dtype=float))  #-create table for each variable to report
+				self.glacid = sorted(self.GlacTable['GLAC_ID'].unique())  #-get the unique glacier ids
+				self.GlacID_memerror = config.getint('REPORTING', 'GlacID_memerror') #-check if a memory error occured while runnning the model
+				if self.GlacID_memerror == 0:  #-with no memory error we can store the pandas dataframes in the computer's memory
+					drange = pd.date_range(self.startdate, self.enddate, freq='D')
+					for p in self.GlacVars: #-make panda dataframes for each variable to report
+						setattr(self, p + '_Table', pd.DataFrame(index = drange, columns=self.glacid,dtype=np.float32))  #-create table for each variable to report
 		elif self.SnowFLAG == 1:
 			if self.GroundFLAG == 1:		
 				pars = ['wbal','GWL','TotPrec','TotPrecE','TotInt','TotRain','TotETpot','TotETact','TotSnow','TotSnowMelt','TotRootR','TotRootD','TotRootP',\
@@ -767,7 +766,7 @@ class sphy(pcrm.DynamicModel):
 				self.ResBaseOutTSS = pcrm.TimeoutputTimeseries("ResBaseOutTSS", self, self.ResID, noHeader=True)
 				self.ResBaseStorTSS = pcrm.TimeoutputTimeseries("ResBaseStorTSS", self, self.ResID, noHeader=True)
 				
-		#-implemented on 2017-06-26 for calculating water balance
+		#-WATER BALANCE
 		self.oldRootWater = self.RootWater
 		self.oldSubWater = self.SubWater
 		if self.GroundFLAG:
@@ -966,7 +965,6 @@ class sphy(pcrm.DynamicModel):
 			#-Report glacier melt
 			self.reporting.reporting(self, pcr, 'TotGlacMelt', GlacMelt)
 			if self.mm_rep_FLAG == 1 and (self.RoutFLAG == 1 or self.ResFLAG == 1 or self.LakeFLAG == 1):
-				#self.GMeltSubBasinTSS.sample(pcr.catchmenttotal(GlacMelt * self.GlacFrac, self.FlowDir) / pcr.catchmenttotal(1, self.FlowDir))
 				self.GMeltSubBasinTSS.sample(pcr.catchmenttotal(GlacMelt, self.FlowDir) / pcr.catchmenttotal(1, self.FlowDir))
 			#-Glacier runoff
 			GlacR = pcr.numpy.zeros(self.ModelID_1d.shape)
@@ -1326,13 +1324,25 @@ class sphy(pcrm.DynamicModel):
 					GlacTable_GLACid['FRAC_GLAC'] = FracSum; FracSum = None; del FracSum  
 					GlacTable_GLACid = GlacTable_GLACid.transpose()  #-Transpose the glacier id table (ID as columns and vars as index)
 					GlacTable_GLACid.fillna(0., inplace=True);
+					
 					#-Fill Glacier variable tables for reporting
-					for v in self.GlacVars:
-						vv = getattr(self, v + '_Table'); vv.loc[self.curdate,:] = GlacTable_GLACid.loc[v,:]
-					v = None; vv = None; del v, vv; GlacTable_GLACid = None; del GlacTable_GLACid
-					if self.curdate == self.enddate: #-do the reporting at the final model time-step
+					if self.GlacID_memerror == 0:
 						for v in self.GlacVars:
-							eval('self.' + v + '_Table.to_csv("'  + self.outpath + v + '.csv")')
+							vv = getattr(self, v + '_Table'); vv.loc[self.curdate,:] = GlacTable_GLACid.loc[v,:]
+						v = None; vv = None; del v, vv; GlacTable_GLACid = None; del GlacTable_GLACid
+						if self.curdate == self.enddate: #-do the reporting at the final model time-step
+							for v in self.GlacVars:
+								eval('self.' + v + '_Table.to_csv("'  + self.outpath + v + '.csv")')
+					else:
+						df = pd.DataFrame(columns=self.glacid, dtype=np.float32)
+						for v in self.GlacVars:
+							#df = pd.DataFrame(columns=self.glacid, dtype=float)
+							df.loc[self.curdate,:] = GlacTable_GLACid.loc[v,:]
+							if self.curdate == self.startdate:
+								df.to_csv(self.outpath + v + '.csv', mode='w')
+							else:
+								df.to_csv(self.outpath + v + '.csv', mode='a', header=False) #-no header for time-step > 1
+						df = None; del df; GlacTable_GLACid = None; del GlacTable_GLACid
 
 				#-Check if glacier retreat should be calculated
 				if self.GlacRetreat == 1 and self.curdate.month == self.GlacUpdate['month'] and self.curdate.day == self.GlacUpdate['day']:
@@ -1423,8 +1433,7 @@ class sphy(pcrm.DynamicModel):
 					self.GlacTable['SnowWatStore_GLAC'] = 0.
 					self.GlacTable['TotalSnowStore_GLAC'] = 0.
 					
-					#-remove SnowWatStore_GLAC from total snowwat
-					#self.report(TotalSnowStore_GLAC, self.outpath + 'SStGlac')
+					#-remove SnowWatStore_GLAC from total snowstore
 					self.TotalSnowStore = self.TotalSnowStore - TotalSnowStore_GLAC
 					
 					#-Set accumulated glacier melt to zero as initial condition for next period

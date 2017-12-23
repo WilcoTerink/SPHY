@@ -23,9 +23,9 @@
 __author__ = "Wilco Terink"
 __copyright__ = "Wilco Terink"
 __license__ = "GPL"
-__version__ = "2.1"
+__version__ = "2.2"
 __email__ = "terinkw@gmail.com"
-__date__ ='1 January 2017'
+__date__ ='23 December 2017'
 ############################################################################################
 
 # Advanced routing that is used for reservoirs or lakes
