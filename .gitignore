@@ -1,6 +1,7 @@
 /dist
 /input
 /output
-/SPHY_README.docx
 /.project
 /.pydevproject
+.settings
+/*.pyc

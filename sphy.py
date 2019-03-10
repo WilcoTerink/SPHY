@@ -1,8 +1,8 @@
 #***********************************************************************************************
-# THE SPATIAL PROCESSES IN HYDROLOGY (SPHY) MODEL IS DEVELOPED AND OWNED BY FUTUREWATER.
+# THE SPATIAL PROCESSES IN HYDROLOGY (SPHY) MODEL
 # AUTHOR: W. Terink
 # DATE LATEST CHANGE: 15-04-2014
-# VERSION 2.0
+# VERSION 2.0.0
 #***********************************************************************************************
 
 # This model uses the sphy_config.cfg as configuration file.
@@ -21,8 +21,8 @@ class sphy(pcrm.DynamicModel):
 	def __init__(self):
 		# Print model info
 		print 	'The Spatial Processes in HYdrology (SPHY) model is ' \
-				'developed and owned by FutureWater, Wageningen, The Netherlands'
-		print   'Version 2.0'
+				'developed by Wilco Terink, Wageningen, The Netherlands'
+		print   'Version 2.0.0'
 		print ' '
 
 		# Read the modules to be used
