@@ -5,7 +5,7 @@ def RootRunoff(pcr, rainfrac, rootwater, rootsat):
 
 #-Function to calculate rootzone drainage
 def RootDrainage(pcr, rootwater, rootdrain, rootfield, rootsat, drainvel, rootTT):
-    rootexcess = pcr.max(rootwater - rootfield)
+    rootexcess = pcr.max(rootwater - rootfield, 0)
     rootexcessfrac = rootexcess / (rootsat - rootfield)
     rootlat = rootexcessfrac * drainvel
     rootdrainage = pcr.max(pcr.min(rootwater, (rootlat + rootdrain) * (1 - pcr.exp(-1 / rootTT))), 0)
