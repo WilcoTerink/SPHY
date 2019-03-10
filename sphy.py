@@ -25,7 +25,7 @@
 __author__ = "Wilco Terink"
 __copyright__ = "Wilco Terink"
 __license__ = "GPL"
-__version__ = "2.2"
+__version__ = "2.2.0"
 __email__ = "terinkw@gmail.com"
 __date__ ='16 October 2018'
 ############################################################################################
@@ -50,7 +50,7 @@ class sphy(pcrm.DynamicModel):
 		# Print model info
 		print 	'The Spatial Processes in HYdrology (SPHY) model is ' \
 				'developed by Wilco Terink, Wageningen, The Netherlands'
-		print   'Version 2.2'
+		print   'Version 2.2.0'
 		print ' '
 
 		#-Missing value definition

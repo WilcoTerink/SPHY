@@ -25,7 +25,7 @@
 __author__ = "Wilco Terink"
 __copyright__ = "Wilco Terink"
 __license__ = "GPL"
-__version__ = "2.2"
+__version__ = "2.2.0"
 __email__ = "terinkw@gmail.com"
 __date__ ='16 October 2018'
 ############################################################################################
