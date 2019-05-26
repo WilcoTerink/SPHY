@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; SPHY 2.2.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Building a model" href="building.html" />
+    <link rel="prev" title="Applications" href="applications.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPHY
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#anaconda">Anaconda</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#about-anaconda">About Anaconda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-anaconda">Download Anaconda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-sphy-using-anaconda">Install SPHY using Anaconda</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pip">pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#about-pip">About pip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-sphy-using-pip">Install SPHY using pip</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#download-from-github-repository">Download from GitHub repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">Running a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPHY</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The SPHY model requires the PCRaster dynamic modelling framework, which needs to be downloaded from:</p>
+<p><a class="reference external" href="http://pcraster.geo.uu.nl/">http://pcraster.geo.uu.nl/</a></p>
+<p class="last">The PCRaster version required for the SPHY model may vary between each SPHY model release. It is
+therefore important to carefully read the <a class="reference internal" href="releases.html#releases"><span class="std std-ref">release notes</span></a> of the SPHY model release you intend to use.</p>
+</div>
+<p>This page describes how you can install the SPHY model. There are three different ways of installing the model:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Install via <a class="reference internal" href="#installation-anaconda"><span class="std std-ref">Anaconda</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">WilcoTerink</span> <span class="n">SPHY</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Install via <a class="reference internal" href="#installation-pip"><span class="std std-ref">pip</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">SPHY</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Downloading the source code from the <a class="reference external" href="https://github.com/WilcoTerink/SPHY">SPHY model GitHub repository</a></p>
+</li>
+</ol>
+</div></blockquote>
+<p>Each of these installation methods is described in detail in the sections below. The recommended installation is the
+<strong>anaconda</strong> method.</p>
+<div class="section" id="anaconda">
+<span id="id2"></span><h2>Anaconda<a class="headerlink" href="#anaconda" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="about-anaconda">
+<h3>About Anaconda<a class="headerlink" href="#about-anaconda" title="Permalink to this headline">¶</a></h3>
+<p>Anaconda is the world’s most popular Python/R data science platform. The open-source Anaconda distribution is the easiest way
+to perform Python/R data science and machine learning on Linux, Windows, and Mac OS X. With over 11 million users worldwide, it
+is the industry standard for developing, testing, and training on a single machine, enabling individual data scientists to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Quickly download 1,500+ Python/R data science packages</li>
+<li>Manage libraries, dependencies, and environments with Conda</li>
+<li>Develop and train machine learning and deep learning models with scikit-learn, TensorFlow, and Theano</li>
+<li>Analyze data with scalability and performance with Dask, NumPy, pandas, and Numba</li>
+<li>Visualize results with Matplotlib, Bokeh, Datashader, and Holoviews</li>
+</ul>
+</div></blockquote>
+<p>More information about the Anaconda distribution can be found <a class="reference external" href="https://www.anaconda.com/distribution/">here</a>.</p>
+</div>
+<div class="section" id="download-anaconda">
+<h3>Download Anaconda<a class="headerlink" href="#download-anaconda" title="Permalink to this headline">¶</a></h3>
+<p>It is strongly recommended to use the Anaconda Python distribution to install and manage all your Python packages. The reason for
+this is because Anaconda checks for dependencies, installs missing dependencies or updates old depencies if required. Depending on the
+SPHY model release, a different Anaconda Python distribution may be required (see <a class="reference internal" href="releases.html#releases"><span class="std std-ref">Releases</span></a>). Use one of the links below to
+download the required Anaconda Python distribution:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://repo.anaconda.com/archive/Anaconda2-2019.03-MacOSX-x86_64.pkg">Python 2.7 version</a></li>
+<li><a class="reference external" href="https://repo.anaconda.com/archive/Anaconda3-2019.03-MacOSX-x86_64.pkg">Python 3.7 version</a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="install-sphy-using-anaconda">
+<span id="installation-anaconda"></span><h3>Install SPHY using Anaconda<a class="headerlink" href="#install-sphy-using-anaconda" title="Permalink to this headline">¶</a></h3>
+<p>Once you have PCRaster and Anaconda installed you can easily install the SPHY model via the command prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">WilcoTerink</span> <span class="n">SPHY</span>
+</pre></div>
+</div>
+<p>The command above will always install the most recent SPHY model release. Installing a specific SPHY model release can be achieved by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">WilcoTerink</span> <span class="n">SPHY</span><span class="o">=</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>which in this case installs SPHY model release 2.2.0.</p>
+<p>Upgrading an already installed SPHY model distribution to the most recent release can be achieved by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">update</span> <span class="o">-</span><span class="n">c</span> <span class="n">WilcoTerink</span> <span class="n">SPHY</span>
+</pre></div>
+</div>
+<p>After you have installed the SPHY model, the SPHY model package resides under:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PATH</span><span class="o">-</span><span class="n">TO</span><span class="o">-</span><span class="n">YOUR</span><span class="o">-</span><span class="n">ANACONDA</span><span class="o">-</span><span class="n">INSTALLATION</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">SPHY</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pip">
+<span id="id3"></span><h2>pip<a class="headerlink" href="#pip" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="about-pip">
+<h3>About pip<a class="headerlink" href="#about-pip" title="Permalink to this headline">¶</a></h3>
+<p>pip is the package installer for Python. You can use pip to install packages from the <a class="reference external" href="https://pypi.org/">Python Package Index</a> and other indexes.
+In contrast to Anaconda, which comes with a complete Python installation, pip itself does not contain a Python installation. Therefore,
+it is required to have a Python distribution already installed before you can use pip. See the link below for more information on how-to install pip:</p>
+<blockquote>
+<div><a class="reference external" href="https://pip.pypa.io/en/stable/installing/">https://pip.pypa.io/en/stable/installing/</a></div></blockquote>
+</div>
+<div class="section" id="install-sphy-using-pip">
+<span id="installation-pip"></span><h3>Install SPHY using pip<a class="headerlink" href="#install-sphy-using-pip" title="Permalink to this headline">¶</a></h3>
+<p>Once you have PCRaster and pip installed you can easily install the SPHY model via the command prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">SPHY</span>
+</pre></div>
+</div>
+<p>The command above will always install the most recent SPHY model release. Installing a specific SPHY model release can be achieved by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">SPHY</span><span class="o">==</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>which in this case installs SPHY model release 2.2.0.</p>
+<p>Upgrading an already installed SPHY model distribution to the most recent release can be achieved by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">SPHY</span> <span class="o">--</span><span class="n">upgrade</span>
+</pre></div>
+</div>
+<p>After you have installed the SPHY model, the SPHY model package resides under:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PATH</span><span class="o">-</span><span class="n">TO</span><span class="o">-</span><span class="n">PYTHON</span><span class="o">-</span><span class="n">INSTALLATION</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">SPHY</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="download-from-github-repository">
+<span id="installation-github"></span><h2>Download from GitHub repository<a class="headerlink" href="#download-from-github-repository" title="Permalink to this headline">¶</a></h2>
+<p>Alternatively, you can download the SPHY model from my GitHub repository:</p>
+<blockquote>
+<div><a class="reference external" href="https://github.com/WilcoTerink/SPHY/releases">https://github.com/WilcoTerink/SPHY/releases</a></div></blockquote>
+<p>You can download the release you want, and extract the contents to a folder on your hard drive.
+The SPHY model can then be run from inside this folder.</p>
+<p>Installation by this method, however, is not recommended because it does not check for the dependencies that are required to run the model, whereas the <a class="reference internal" href="#anaconda"><span class="std std-ref">Anaconda</span></a> and <a class="reference internal" href="#pip"><span class="std std-ref">pip</span></a>
+installation methods do.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="building.html" class="btn btn-neutral float-right" title="Building a model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="applications.html" class="btn btn-neutral float-left" title="Applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Wilco Terink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

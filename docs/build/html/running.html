@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Running a model &mdash; SPHY 2.2.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Releases" href="releases.html" />
+    <link rel="prev" title="Building a model" href="building.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPHY
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building a model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running a model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-model-with-an-anaconda-or-pip-installation">Running the model with an Anaconda or pip installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-model-with-the-github-download-installation">Running the model with the GitHub download installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPHY</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Running a model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/running.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="running-a-model">
+<h1>Running a model<a class="headerlink" href="#running-a-model" title="Permalink to this headline">¶</a></h1>
+<p>This section describes how you can run the SPHY model. How-to run the model depends on the way you have installed
+the SPHY model:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Installation via <a class="reference internal" href="installation.html#installation-anaconda"><span class="std std-ref">Anaconda</span></a> or <a class="reference internal" href="installation.html#installation-pip"><span class="std std-ref">pip</span></a></li>
+<li>Installation using the download from the <a class="reference internal" href="installation.html#installation-github"><span class="std std-ref">GitHub repository</span></a></li>
+</ol>
+</div></blockquote>
+<p>See ONE of the sections below for how-to run your SPHY model depending on the chosen installation method.</p>
+<div class="section" id="running-the-model-with-an-anaconda-or-pip-installation">
+<h2>Running the model with an Anaconda or pip installation<a class="headerlink" href="#running-the-model-with-an-anaconda-or-pip-installation" title="Permalink to this headline">¶</a></h2>
+<p>If you have installed the SPHY model via Anaconda or pip, then you can run the SPHY model from any location
+on your PC; i.e. you do not need to refer to the physical address where the SPHY model source code resides.
+This is an advantage, because you do not need to copy all the model’s source code files everytime you start
+a new project.</p>
+<p>The steps that are needed to run the model are:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Create a folder somewhere on your hard drive, e.g. <code class="docutils literal notranslate"><span class="pre">c:\my_model</span></code></p>
+</li>
+<li><p class="first">After you have installed the model via Anaconda or pip, the <code class="docutils literal notranslate"><span class="pre">SPHY_config.cfg</span></code> configuration template can be found under:</p>
+<p><code class="docutils literal notranslate"><span class="pre">PATH-TO-YOUR-PYTHON-INSTALLATION\Lib\site-packages\SPHY\SPHY_config.cfg</span></code></p>
+<p>Copy <code class="docutils literal notranslate"><span class="pre">SPHY_config.cfg</span></code> to the folder you created under step 1</p>
+</li>
+<li><p class="first">You can edit the <code class="docutils literal notranslate"><span class="pre">SPHY_config.cfg</span></code> and set all the variables in this configuration file</p>
+</li>
+<li><p class="first">After you have edited and saved <code class="docutils literal notranslate"><span class="pre">SPHY_config.cfg</span></code>, you can run the model by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">SPHY</span><span class="o">.</span><span class="n">main</span> <span class="o">-</span><span class="n">i</span> <span class="n">c</span><span class="p">:</span>\<span class="n">my_model</span>\<span class="n">SPHY_config</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="running-the-model-with-the-github-download-installation">
+<h2>Running the model with the GitHub download installation<a class="headerlink" href="#running-the-model-with-the-github-download-installation" title="Permalink to this headline">¶</a></h2>
+<p>If you have downloaded the source code from the <a class="reference external" href="https://github.com/WilcoTerink/SPHY">SPHY model GitHub repository</a>, then you always
+need to work from the folder where you have extracted the model’s source code files; i.e. every time you start a new project you
+have to copy the source code files to the new project folder.</p>
+<p>The steps that are needed to run the model are:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Create a folder somewhere on your hard drive, e.g. <code class="docutils literal notranslate"><span class="pre">c:\my_model</span></code></p>
+</li>
+<li><p class="first">Copy all the model source code files to the folder created under step 1</p>
+</li>
+<li><p class="first">You can edit the <code class="docutils literal notranslate"><span class="pre">SPHY_config.cfg</span></code> and set all the variables in this configuration file</p>
+</li>
+<li><p class="first">Save the <code class="docutils literal notranslate"><span class="pre">SPHY_config.cfg</span></code> file</p>
+</li>
+<li><p class="first">You can now run the model via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">c</span><span class="p">:</span>\<span class="n">my_model</span>\<span class="n">sphy</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">i</span> <span class="n">c</span><span class="p">:</span>\<span class="n">my_model</span>\<span class="n">SPHY_config</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="releases.html" class="btn btn-neutral float-right" title="Releases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="building.html" class="btn btn-neutral float-left" title="Building a model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Wilco Terink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

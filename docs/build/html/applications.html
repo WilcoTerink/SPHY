@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Applications &mdash; SPHY 2.2.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Concepts" href="concepts.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPHY
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#spatial-resolutions-in-areal-rainfall-estimation-and-their-impact-on-hydrological-simulations-of-a-lowland-catchment">Spatial resolutions in areal rainfall estimation and their impact on hydrological simulations of a lowland catchment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#abstract">Abstract</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version-and-reference">Version and reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#irrigation-management-in-lowland-areas">Irrigation management in lowland areas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methodology">Methodology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#results">Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#version">Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#snow-fed-and-glacier-fed-river-basins">Snow-fed and glacier-fed river basins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">Methodology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calibration-on-modis-snow-cover">Calibration on MODIS snow cover</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">Version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">Running a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPHY</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Applications</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/applications.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="applications">
+<span id="id1"></span><h1>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h1>
+<p>This section describes a couple of applications in which the SPHY model has been applied. For each application it is
+indicated which <strong>model release</strong> has been used.</p>
+<div class="section" id="spatial-resolutions-in-areal-rainfall-estimation-and-their-impact-on-hydrological-simulations-of-a-lowland-catchment">
+<h2>Spatial resolutions in areal rainfall estimation and their impact on hydrological simulations of a lowland catchment<a class="headerlink" href="#spatial-resolutions-in-areal-rainfall-estimation-and-their-impact-on-hydrological-simulations-of-a-lowland-catchment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="abstract">
+<h3>Abstract<a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h3>
+<p>Many studies suggest that high-density rain gauge networks are required to capture the rainfall heterogeneities necessary to
+accurately describe the components of the hydrological cycle. However, equipping and maintaining a high-density rain gauge network
+will also involve high costs. Although many studies provided useful insights on the required accuracy of rainfall estimates to accurately
+describe the components of the hydrological cycle, most of these studies focused on streamflow simulations, large river basins or urban
+environments.</p>
+<p>The objective of this study was therefore to evaluate the impact of uncertainties in areal rainfall, estimated at several
+spatial resolutions, on hydrological simulations of a small 6.5 km<sup>2</sup> rural lowland catchment. For this study, the SPHY model was forced with
+rainfall retrieved from an X-band radar (<a class="reference internal" href="#fig-radar-image-joh"><span class="std std-numref">Figure 2</span></a>) and various synthetic rainfall products, calculated using bootstrap samples of a varying number of
+radar pixels, treated as virtual rain gauge locations within the catchment. This allowed us to determine the most appropriate resolution
+of rainfall data to accurately describe the hydrology of a small rural lowland catchment.</p>
+<div class="figure" id="id38" style="width: 100%">
+<span id="fig-radar-image-joh"></span><img alt="_images/radar_image_JOH.jpg" src="_images/radar_image_JOH.jpg" />
+<p class="caption"><span class="caption-number">Figure 2 </span><span class="caption-text">left: Example of an aggregated hourly X-band radar image with rain intensity in mm h<sup>−1</sup> and range resolution of 120 m. Right: Example of an aggregated hourly X-band radar image with rain intensity in mm h<sup>−1</sup> at a 250 m resolution square grid.</span></p>
+</div>
+<p>We found that the use of one rain gauge to estimate the catchment’s areal rainfall may lead to a potential error of more than six times the average
+hourly rainfall. This may lead to uncertainties in simulated discharge that approach 60% of the average hourly discharge. More than 40 rain gauges
+are required to reduce the potential error in areal rainfall estimation to values &lt;0.1 mm h<sup>−1</sup>. The associated uncertainty in discharge simulations
+is 20% if 10 rain gauges are used, and 10% if 40 rain gauges are used. The simulation of soil moisture contents and evapotranspiration rates are
+hardly affected by the number of rain gauges used to estimate the areal rainfall, which is due to the high saturated hydraulic conductivities of
+the top-soil. At least 12 gauges per km<sup>2</sup> are required to capture the spatial rainfall variation that is present in radar rainfall estimates.
+Analysis of an individual 18-h rainfall event revealed that the uncertainty in peak areal rainfall estimated using one rain gauge may range between
+−100% and 600%. The associated uncertainty in simulated discharge for this event ranges between −67 and 233%. With 25 rain gauges the uncertainty
+in simulated discharge is still in the range of −17 to 33%.</p>
+<div class="figure" id="id39" style="width: 100%">
+<span id="fig-sphy-hourly-calibartion-joh"></span><img alt="_images/SPHY_hourly_calibartion_JOH.jpg" src="_images/SPHY_hourly_calibartion_JOH.jpg" />
+<p class="caption"><span class="caption-number">Figure 3 </span><span class="caption-text">Left: observed (Q<sub>obs</sub>) and SPHY simulated discharge (Q<sub>sim</sub>) for the calibration period 2001–2009. Right: idem, but for the hydrological year May 2001–April 2002.</span></p>
+</div>
+</div>
+<div class="section" id="highlights">
+<h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Rain gauge sampling uncertainties impact hydrologic model output in small catchments.</li>
+<li>High-resolution radar data can be used to simulate rain gauge sampling uncertainties.</li>
+<li>A single rain gauge in a 6.5-km<sup>2</sup> area may sample 6 times the average hourly rainfall.</li>
+<li>Discharge uncertainties are 60%, 20%, and 10% for 1, 10, and 40 gauges, respectively.</li>
+<li>Uncertainties increase for larger rainfall intensities.</li>
+</ul>
+</div>
+<div class="section" id="version-and-reference">
+<h3>Version and reference<a class="headerlink" href="#version-and-reference" title="Permalink to this headline">¶</a></h3>
+<p>This application was done using an unreleased version of SPHY, for which the SPHY model code was modified to allow for
+hourly model simulations.</p>
+<p>A link to the peer-reviewed article <a class="reference internal" href="references.html#terink2018b" id="id2">[32]</a> of this application can be found below:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S002216941830372X">Wilco Terink, Hidde Leijnse, Gé van den Eertwegh, and Remko Uijlenhoet. Spatial resolutions in areal rainfall estimation
+and their impact on hydrological simulations of a lowland catchment. Journal of Hydrology, 563:319–335, aug 2018.
+URL: https://www.sciencedirect.com/science/article/pii/S002216941830372X, doi:10.1016/J.JHYDROL.2018.05.045</a></li>
+</ul>
+<p>The pdf to this application can be found <a class="reference external" href="https://reader.elsevier.com/reader/sd/pii/S002216941830372X?token=51161C0436773ECDCF4E260C36BD92DE22034B8A31EA9995075770BC8FE17112C4D5AB0A0F0A82EA5303923701605903">here</a>.</p>
+</div>
+</div>
+<div class="section" id="irrigation-management-in-lowland-areas">
+<h2>Irrigation management in lowland areas<a class="headerlink" href="#irrigation-management-in-lowland-areas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>As SPHY produces spatial outputs for the soil moisture content in the root zone and the
+potential and actual evapotranspiration (ET), it is a useful tool for application in agricultural
+water management decision support. By facilitating easy integration of remote sensing data,
+crop growth stages can be spatially assessed at different moments in time. The SPHY dynamic
+vegetation module ensures that all relevant soil water fluxes correspond to crop development
+stages throughout the growing season. Spatially distributed maps of root water content and ET
+deficit can be produced, enabling both the identification of locations where irrigation is required
+and a quantitative assessment of crop water stress. SPHY has been applied with the purpose of
+providing field-specific irrigation advice for a largescale farm in western Romania, comprising
+380 individual fields and approximately ten different crops.</p>
+</div>
+<div class="section" id="methodology">
+<h3>Methodology<a class="headerlink" href="#methodology" title="Permalink to this headline">¶</a></h3>
+<p>A high spatial resolution is very relevant for supporting decisions on variable-rate irrigation. The model has therefore been
+set up using a 30 m resolution, covering the 2013 and 2014 cropping seasons on a daily time-step. Optical
+satellite data from Landsat 8 <a class="reference internal" href="references.html#usgs2013" id="id3">[34]</a> were used as input to the dynamic vegetation module. Soil properties
+were derived from the Harmonized World Soil Database <a class="reference internal" href="references.html#batjes2012" id="id4">[1]</a>, which for Romania contains data
+from the Soil Geographical Database for Europe <a class="reference internal" href="references.html#lambert2003" id="id5">[16]</a>. Using the Van Genuchten equation <a class="reference internal" href="references.html#vangenuchten1980" id="id6">[36]</a>,
+soil saturated water content, field capacity, and wilting point were determined for the
+HWSD classes occurring at the study site. Elevation data was obtained from the EU-DEM data set <a class="reference internal" href="references.html#eea2014" id="id7">[4]</a>, and
+air temperature was measured by two on-farm weather stations.</p>
+<p>For calibration purposes, field measurements of soil moisture and/or actual ET are desired. In
+this case study, one capacitance soil moisture sensor was installed in a soybean field to monitor
+root-zone water content shortly after 1 May 2014, which is the start of the soybean growing
+season. The sensor measures volumetric moisture content for every 10 cm of the soil profile up
+to a depth of 60 cm. It is also equipped with a rain gauge measuring the sum of rainfall and
+applied irrigation water, which was used as an input to SPHY. Soil moisture measured over the
+extent covered by the crop root depth was averaged and compared to simulated values.</p>
+</div>
+<div class="section" id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<p>In irrigation management applications like these, a model should be capable of simulating the
+moisture stress experienced by the crop due to insufficient soil moisture contents, which
+manifests itself by an evapotranspiration deficit (potential ET−actual ET&gt;0). <a class="reference internal" href="#fig-romania-et-deficit"><span class="std std-numref">Figure 4</span></a> shows the
+spatial distribution of ET deficit, as simulated by the SPHY model for the entire farm on
+3 April 2014. When SPHY is run in an operational setting, this spatial information can be
+included in a decision support system that aids the farmer in irrigation planning for the coming
+days.</p>
+<div class="figure" id="id40" style="width: 60%">
+<span id="fig-romania-et-deficit"></span><img alt="_images/etdef_300dpi.png" src="_images/etdef_300dpi.png" />
+<p class="caption"><span class="caption-number">Figure 4 </span><span class="caption-text">Spatial distribution of evapotranspiration (ET) deficit, as simulated by the SPHY
+model for a Romanian farm on 3 April 2014. Transparency means no ET deficit.</span></p>
+</div>
+<p>Since this study was a demonstration project, only an initial model calibration was performed.
+The model was in this case most sensitive for the crop coefficient (Kc), affecting the evaporative
+demand for water. As can be seen in <a class="reference internal" href="#fig-romania-soil-moisture-calibration"><span class="std std-numref">Figure 5</span></a>, the temporal patterns as measured by the soil
+moisture sensor are well simulated by the SPHY model. Based on daily soil moisture values, a
+Nash–Sutcliffe <a class="reference internal" href="references.html#nash1970" id="id8">[25]</a> model efficiency coefficient of 0.6 was found,
+indicating that the quality of prediction of the SPHY model is “good” <a class="reference internal" href="references.html#foglia2009" id="id9">[5]</a>.</p>
+<div class="figure" id="id41" style="width: 70%">
+<span id="fig-romania-soil-moisture-calibration"></span><img alt="_images/Romania_soil_moisture.png" src="_images/Romania_soil_moisture.png" />
+<p class="caption"><span class="caption-number">Figure 5 </span><span class="caption-text">Measured and simulated daily root-zone soil moisture content during the 2014
+growing season. Rainfall + irrigation has been measured by the rain gauge that was
+attached to the moisture sensor.</span></p>
+</div>
+<p>Soil moisture simulations could be further improved by conducting a full model calibration, adjusting
+the soil physical parameters. Remotely sensed sensed evapotranspiration can be used in the
+calibration process <a class="reference internal" href="references.html#immerzeel2008" id="id10">[9]</a>, although such data are often not available on
+these small scales as ET is a very complex variable to assess <a class="reference internal" href="references.html#samain2012" id="id11">[26]</a>. It should also
+be noted that soil moisture content is typically highly variable in space; a very high correlation
+between point measurements and gridcell simulations of soil moisture may therefore not always be
+feasible <a class="reference internal" href="references.html#bramer2013" id="id12">[2]</a>.</p>
+</div>
+<div class="section" id="version">
+<h3>Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h3>
+<p>This study was carried out using SPHY model release <a class="reference internal" href="releases.html#release-2-0-0"><span class="std std-ref">2.0.0</span></a>.</p>
+</div>
+</div>
+<div class="section" id="snow-fed-and-glacier-fed-river-basins">
+<h2>Snow-fed and glacier-fed river basins<a class="headerlink" href="#snow-fed-and-glacier-fed-river-basins" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h3>Introduction<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>SPHY is being used in large Asian river basins with significant contribution of glacier melt and
+snowmelt to the total flow (<a class="reference internal" href="references.html#immerzeel2012a" id="id14">[11]</a>, <a class="reference internal" href="references.html#lutz2012a" id="id15">[19]</a>, <a class="reference internal" href="references.html#lutz2014" id="id16">[22]</a>). The major goals of
+these applications are two-fold:</p>
+<ul class="simple">
+<li>Assess the current hydrological regimes at high resolution; e.g., assess spatial
+differences in the contributions of glacier melt, snowmelt and rainfall–runoff to the total
+flow.</li>
+<li>Quantify the effects of climate change on the hydrological regimes in the future and how
+these affect the water availability.</li>
+</ul>
+<p>Rivers originating in the high mountains of Asia are considered to be the most meltwater
+dependent river systems on Earth <a class="reference internal" href="references.html#schaner2012a" id="id17">[27]</a>. In the regions surrounding
+the Himalayas and the Tibetan Plateau large human populations depend on the water
+supplied by these rivers <a class="reference internal" href="references.html#immerzeel-2010a" id="id18">[12]</a>. However, the dependency on melt water
+differs strongly between river basins as a result of differences in climate and differences
+in basin hypsometry <a class="reference internal" href="references.html#immerzeel2012" id="id19">[8]</a>. Only by using a distributed
+hydrological modelling approach that includes the simulation of key hydrological and
+cryospheric processes, and inclusion of transient changes in climate, snow cover,
+glaciers and runoff, appropriate adaptation and mitigation options can be developed for
+this region <a class="reference internal" href="references.html#sorg2012" id="id20">[29]</a>. The SPHY model is very suitable for such goals, and has
+therefore been widely applied in the region.</p>
+</div>
+<div class="section" id="id21">
+<h3>Methodology<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>In the Himalayan Climate Change Adaptation Programme (HICAP), led by the International Centre
+for Integrated Mountain Development (ICIMOD), SPHY has been successfully applied in the upstreambasins of the Indus, Ganges, Brahmaputra, Salween
+and Mekong rivers (<a class="reference internal" href="references.html#lutz2013" id="id22">[20]</a>, <a class="reference internal" href="references.html#lutz2014" id="id23">[22]</a>).</p>
+<p>For application in this region, SPHY was setup at a 1 km spatial resolution using a daily
+time-step, and forced with historical air temperature (Tavg, Tmax, Tmin) and precipitation
+data, obtained from global and regional datasets (e.g. APHRODITE <a class="reference internal" href="references.html#yatagai2012a" id="id24">[35]</a>,
+Princeton <a class="reference internal" href="references.html#sheffield2006a" id="id25">[28]</a>, TRMM <a class="reference internal" href="references.html#gopalan2010" id="id26">[7]</a>) or interpolated WMO
+station data froma historical reference period. For this historical reference period SPHY
+was calibrated andvalidated using observed streamflow. For the future period, SPHY was
+forced with downscaled climate change projections obtained from General Circulation
+Models (GCMs), as available through the Climate Model Intercomparison Projects (e.g.
+CMIP3 <a class="reference internal" href="references.html#meehl2007a" id="id27">[23]</a>, CMIP5 <a class="reference internal" href="references.html#taylor2012" id="id28">[30]</a>), which were used as basis for the
+Assessment Reports prepared by the Intergovernmental Panel on Climate Change (IPCC).</p>
+</div>
+<div class="section" id="id29">
+<h3>Results<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<p>In this study the hydrological regimes of these five basins have been quantified and the
+calibrated and validated model (<a class="reference internal" href="#fig-hicap-hydrographs"><span class="std std-numref">Figure 6</span></a>) was forced with an ensemble
+of eight GCMs to create water availability scenarios until 2050.</p>
+<div class="figure align-right" id="id42" style="width: 50%">
+<span id="fig-hicap-hydrographs"></span><img alt="_images/hydrographs_cal_val_hicap2.png" src="_images/hydrographs_cal_val_hicap2.png" />
+<p class="caption"><span class="caption-number">Figure 6 </span><span class="caption-text">Average monthly observed and SPHY-simulated flow (1998-2007) for the Chatara major discharge measurement location
+in the Ganges basin <a class="reference internal" href="references.html#lutz2014" id="id30">[22]</a>. Metrics are calculated based on monthly time steps.</span></p>
+</div>
+<p><a class="reference internal" href="#table-station-calibration-hicap"><span class="std std-numref">Table 1</span></a>
+lists the calibration and validation results. Based on the validation
+results, we concluded that the model performs satisfactory given the large scale,
+complexity and heterogeneity of the modeled region and data scarcity <a class="reference internal" href="references.html#lutz2014" id="id31">[22]</a>.
+We used one parameter set for the entire domain, which inherently means
+some stations perform better than others. In the particular case of the upper Indus,
+another possible explanation could be uncertainty in air temperature forcing in the
+highest parts of the upper Indus basin (locations Dainyor bridge, Besham Qila and
+Tarbela inflow in <a class="reference internal" href="#table-station-calibration-hicap"><span class="std std-numref">Table 1</span></a>), since especially in this area, the used forcing datasets are
+based on very sparse observations.</p>
+<table border="1" class="docutils" id="id43">
+<span id="table-station-calibration-hicap"></span><caption><span class="caption-number">Table 1 </span><span class="caption-text">Station locations used for calibration and validation of the SPHY model in HICAP <a class="reference internal" href="references.html#lutz2014" id="id32">[22]</a>.Three stations were used for calibration for 1998-2007. Five stations were used for an independent validation for the sameperiod. The Nash-Sutcliffe efficiency (NS) and bias metrics were calculated at a monthly time step.</span><a class="headerlink" href="#id43" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="27%" />
+<col width="13%" />
+<col width="17%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Location</th>
+<th class="head">NS [-]</th>
+<th class="head">Bias [%]</th>
+<th class="head">Validation/Calibration</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Dainyor bridge</td>
+<td>0.39</td>
+<td>58.2</td>
+<td>validation</td>
+</tr>
+<tr class="row-odd"><td>Besham Qila</td>
+<td>0.66</td>
+<td>24.7</td>
+<td>validation</td>
+</tr>
+<tr class="row-even"><td>Tarbela Inflow</td>
+<td>0.63</td>
+<td>34.6</td>
+<td>calibration</td>
+</tr>
+<tr class="row-odd"><td>Marala Inflow</td>
+<td>0.65</td>
+<td>12.0</td>
+<td>validation</td>
+</tr>
+<tr class="row-even"><td>Pachuwarghat</td>
+<td>0.90</td>
+<td>-1.6</td>
+<td>validation</td>
+</tr>
+<tr class="row-odd"><td>Rabuwa Bazar</td>
+<td>0.65</td>
+<td>-22.5</td>
+<td>validation</td>
+</tr>
+<tr class="row-even"><td>Turkeghat</td>
+<td>0.87</td>
+<td>-5.4</td>
+<td>calibration</td>
+</tr>
+<tr class="row-odd"><td>Chatara</td>
+<td>0.87</td>
+<td>7.9</td>
+<td>calibration</td>
+</tr>
+</tbody>
+</table>
+<p>SPHY allowed the assessment of current contribution
+of glacier melt and snow melt to total flow (<a class="reference internal" href="#fig-contributions-ref-hicap"><span class="std std-numref">Figure 7</span></a>), and how total flow volumes
+and the intra-annual distribution of river flow will change in the future <a class="reference internal" href="references.html#lutz2014" id="id33">[22]</a>.</p>
+<div class="figure align-right" id="id44" style="width: 45%">
+<span id="fig-contributions-ref-hicap"></span><img alt="_images/fig_contributions_ref_hicap.png" src="_images/fig_contributions_ref_hicap.png" />
+<p class="caption"><span class="caption-number">Figure 7 </span><span class="caption-text">The contribution of glacier melt (a), snowmelt (b), and rainfall (c) to the total flow for major streams in the upstream basins of the Indus, Ganges, Brahmaputra, Salween and Mekong during 1998-2007 <a class="reference internal" href="references.html#lutz2014" id="id34">[22]</a>.</span></p>
+</div>
+</div>
+<div class="section" id="calibration-on-modis-snow-cover">
+<span id="calibration-modis-snow-cover"></span><h3>Calibration on MODIS snow cover<a class="headerlink" href="#calibration-on-modis-snow-cover" title="Permalink to this headline">¶</a></h3>
+<p>For basins with snow melt being an important contributor to the flow, besides calibration
+to observed flow, the snow-related parameters in the SPHY model can also be calibrated
+to observed snow cover. For the Upper Indus basin the snow-related parameters
+degree-day factor for snow (DDF) and snow water storage capacity (SSC) were calibrated
+independently using MODIS snow cover imagery <a class="reference internal" href="references.html#lutz2014b" id="id35">[21]</a>. The same
+MODIS dataset was used as in <a class="reference internal" href="references.html#immerzeel2009" id="id36">[10]</a>. From the beginning of 2000 until
+halfway 2008, the snow cover imagery was averaged for 46 different periods of 8 days (5
+days for the last period) to generate 46 different average snow cover maps. E.g. period 1
+is the average snowcover for 1-8 January for 2000 until 2008, whereas period 2 is the average
+snow cover for 9-16 January for 2000 until 2008, etc.</p>
+<div class="figure align-right" id="id45" style="width: 50%">
+<span id="fig-modis-snow-cover-graph"></span><img alt="_images/MODIS_snowcover_graph.png" src="_images/MODIS_snowcover_graph.png" />
+<p class="caption"><span class="caption-number">Figure 8 </span><span class="caption-text">Observed and simulated average fractional snow cover in the upper Indus basin. The values represent the 9-year average for 46 (8-day) periods during 2000-2007.</span></p>
+</div>
+<p>The SPHY model was run for 2000-2007 at a daily time step and for each 1 x 1 km grid cell the average snow cover was
+calculated for the same 46 periods as in the MODIS observed snow cover dataset. Subsequently,
+these simulated snowcover maps were resampled to 0.05 degrees spatial resolution, which is the
+native resolution of the MODIS product.</p>
+<p><a class="reference internal" href="#fig-modis-snow-cover-graph"><span class="std std-numref">Figure 8</span></a> shows the basin-average observed and simulated
+fractional snow cover for the 46 periods during 2000-2007 and <a class="reference internal" href="#fig-modis-snow-cover"><span class="std std-numref">Figure 9</span></a> shows the same at the 0.05
+grid cell level. As a final step, the baseflow recession coefficient and routing coefficient (kx)
+were calibrated to match the simulated streamflow with the observed streamflow.</p>
+<div class="figure" id="id46" style="width: 60%">
+<span id="fig-modis-snow-cover"></span><img alt="_images/MODIS_snowcover.png" src="_images/MODIS_snowcover.png" />
+<p class="caption"><span class="caption-number">Figure 9 </span><span class="caption-text">Observed and simulated average fractional snow cover in the upper Indus basin. The values represent the 9-year average for 46 (8-day) periods during 2000-2007.</span></p>
+</div>
+</div>
+<div class="section" id="id37">
+<h3>Version<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<p>This study was carried out using SPHY model release <a class="reference internal" href="releases.html#release-2-0-0"><span class="std std-ref">2.0.0</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="concepts.html" class="btn btn-neutral float-left" title="Concepts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Wilco Terink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
