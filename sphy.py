@@ -95,10 +95,6 @@ class sphy(pcrm.DynamicModel):
 			import dynamic_veg # dynamic crop growth using ndvi or kc time-series
 			self.dynamic_veg = dynamic_veg
 			del dynamic_veg
-		if self.IrriFLAG == 1:
-			import irrigation # irrigation module
-			self.irrigation = irrigation
-			del irrigation
 		if self.GroundFLAG == 1:
 			import groundwater # groundwater storage as third storage layer. This is used instead of a fixed bottomflux
 			self.groundwater = groundwater
