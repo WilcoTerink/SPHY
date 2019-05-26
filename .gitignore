@@ -1,7 +1,5 @@
-/dist
-/input
-/output
 /.project
 /.pydevproject
-.settings
-/*.pyc
+/.settings/
+/dist/
+/SPHY.egg-info/

@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Releases &mdash; SPHY 2.2.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FAQ" href="faq.html" />
+    <link rel="prev" title="Running a model" href="running.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPHY
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">Running a model</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-2-1">2.2.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#about">About</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pcraster">PCRaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-2-0">2.2.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">About</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#background">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improved-glacier-module">Improved glacier module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">PCRaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-1-1">2.1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id16">About</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">PCRaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-1-0">2.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id21">About</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id22">Background</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simple-reservoir-scheme">Simple reservoir scheme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-reservoir-scheme">Advanced reservoir scheme</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id32">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id35">PCRaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-0-4">2.0.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id38">About</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id39">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id40">PCRaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-0-3">2.0.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id43">About</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id44">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id47">PCRaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-0-2">2.0.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id50">About</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id51">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id54">PCRaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-0-1">2.0.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id57">About</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id58">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id61">PCRaster</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-2-0-0">2.0.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id64">About</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id66">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id69">PCRaster</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPHY</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Releases</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/releases.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="releases">
+<span id="id1"></span><h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="release-2-2-1">
+<span id="id2"></span><h2>2.2.1<a class="headerlink" href="#release-2-2-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="about">
+<h3>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h3>
+<p>The difference with respect to version 2.2.0 is that this version can be installed via <a class="reference internal" href="installation.html#installation-anaconda"><span class="std std-ref">Anaconda</span></a> or <a class="reference internal" href="installation.html#installation-pip"><span class="std std-ref">pip</span></a>.</p>
+</div>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>Install via Anaconda:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">WilcoTerink</span> <span class="n">SPHY</span><span class="o">=</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>or install via pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">SPHY</span><span class="o">==</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pcraster">
+<h3>PCRaster<a class="headerlink" href="#pcraster" title="Permalink to this headline">¶</a></h3>
+<p>PCRaster 4.1.0 is required for this version of the SPHY model. PCRaster 4.1.0 can be downloaded <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster-4-1-0/">here</a>.</p>
+</div>
+</div>
+<div class="section" id="release-2-2-0">
+<span id="id3"></span><h2>2.2.0<a class="headerlink" href="#release-2-2-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>About<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="background">
+<h4>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h4>
+<p>Glaciers in previous SPHY model releases were not mass conserving; i.e. they were implemented as a fixed mass generating glacier melt using a degree day factor. This means that:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Rainfall on the glacier was not accounted for, and needs to be corrected for as a pre-processing step</li>
+<li>Snowfall, accumulation of snow, and snow melt on glacier grid cells was not taken into account</li>
+<li>Redistribution of ice from the accumulation to the ablation zone was not simulated; i.e. the dynamic retreat or advance of glaciers could not be simulated</li>
+</ul>
+</div></blockquote>
+<div class="figure" id="id71" style="width: 80%">
+<span id="fig-glacier-pic"></span><img alt="Glacier" src="_images/glacier_pic.jpg" />
+<p class="caption"><span class="caption-number">Figure 20 </span><span class="caption-text">A glacier in New Zealand.</span></p>
+</div>
+<p>Several methods exist to model glacier dynamics. E.g., <a class="reference internal" href="references.html#bahr1997" id="id5">[1]</a> performed a scaling analysis of the mass and momentum conservation equations and showed that glacier volumes
+can be related by a power law to more easily observed glacier surface areas. The disadvantage of this approach is that it is a lumped method and can therefore not be applied on a gridded surface. Another
+method is described by <a class="reference internal" href="references.html#huss2010" id="id6">[11]</a>, who uses a <span class="math notranslate nohighlight">\(\Delta\)</span> h-parameterization to describe the spatial distribution of the glacier surface elevation change in response to a change in mass balance. It is an
+empirical glacier-specific function derived from observations in the past that can easily be applied to large samples of glaciers. However, a disadvantage of this methodology is that a large number of
+observations (multiple DEMs of the same glacier) from the past is required. <a class="reference internal" href="references.html#weertman1957" id="id7">[42]</a> and <a class="reference internal" href="references.html#immerzeel2012b" id="id8">[17]</a> described another method, known as Weertman sliding <a class="reference internal" href="references.html#weertman1957" id="id9">[42]</a>. The disavantage
+of this method is that it is only feasible at high spatial model resolutions (&lt;100 m), and it ignores viscous deformation. A good overview of the methods that are available for estimating ice volumes is well-described
+in <a class="reference internal" href="references.html#frey2014" id="id10">[8]</a>.</p>
+</div>
+<div class="section" id="improved-glacier-module">
+<h4>Improved glacier module<a class="headerlink" href="#improved-glacier-module" title="Permalink to this headline">¶</a></h4>
+<p>The improved glacier module accounts for rainfall and snowfall onto the glacier, accumulation and melt of snow, and redistribution of ice from the accumulation to the ablation zone.
+These modifications allow glaciers to retreat over time if the melt rate is higher than the accumulation rate. The only data required for the improved module is:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>A high-resolution DEM (higher resolution than the spatial resolution of your model)</li>
+<li>A shapefile with the outlines of the glaciers within your area of interest. The <a class="reference external" href="https://www.glims.org/RGI/">Randolph Glacier Inventory (RGI)</a> is a recommended source for this</li>
+<li>A classification of which areas are debris-free and which are debris-covered</li>
+</ol>
+</div></blockquote>
+<p>The new module uses the strength of combining PCRaster operations with <a class="reference external" href="https://www.numpy.org/">NumPy</a> and <a class="reference external" href="https://pandas.pydata.org/">pandas dataframe</a> functionalities. Instead of specifying the spatial
+distribution of glaciers on a PCRaster model grid, the glacier characteristics are now specified in a csv-file, and the glacier model grids are the initialized from this csv-file. Each line in the csv-file
+describes the glacier properties for a UID, which is a unique combination of model cell ID, glacier ID, glacier elevation, and a boolean describing if that UID is clean ice or debris-covered.
+The contents of this csv-file and the creation thereof are described in <a class="reference internal" href="building.html#glacier-input-2-2-0"><span class="std std-ref">here</span></a>.</p>
+<div class="figure" id="id72" style="width: 80%">
+<span id="fig-illustration-steps-glacier-module"></span><img alt="Illustration of steps to prepare input for the improved glacier module." src="_images/steps_improved_glacier_module.png" />
+<p class="caption"><span class="caption-number">Figure 21 </span><span class="caption-text">Illustration of steps to prepare input for the improved glacier module.</span></p>
+</div>
+<p>The new module basically comes down to overlaying your model grid with a higher resolution DEM to allow for the differentation of multiple glacier fractions and associated elevations within one model grid cell.
+A more accurate represenation of multiple glacier elevations within one model grid cell allows for a more accurate calculation of temperature, and thus melting rates. The more accurate temperature is calculated
+by lapsing the temperature from the model cell elevation to the elevation of the glacier fraction within that model grid cell. Snow and rain on the glacier are now accounted for, and melt rates adapt based on
+the presence of a dynamic snow pack; snow is melted before the glacier start melting.</p>
+<div class="figure" id="id73" style="width: 50%">
+<span id="fig-ela"></span><img alt="The Equilibrium Line Altitude (ELA), accumulation area, and ablation area of a glacier." src="_images/ELA.png" />
+<p class="caption"><span class="caption-number">Figure 22 </span><span class="caption-text">The Equilibrium Line Altitude (ELA), accumulation area, and ablation area of a glacier.</span></p>
+</div>
+<p>Although the movement of glaciers is a continuous process, modelling this on a daily time-step is not feasible given the level of detailed geophysical information required for this. Glacier movement is the
+result of ice-redistribution. This is modelled by calculating the difference between the accumulation of snow and the melting of glacier ice on an annual basis (end of the hydrological year). Glaciers have
+an Equilibrium Line Altitude (ELA) above which the net accumulation of ice occurs and net melt (ablation) occurs below the ELA (<a class="reference internal" href="#fig-ela"><span class="std std-numref">Figure 22</span></a>). If the annual glacier’s mass balance is negative (more ablation than accumulation),
+then the accumulated mass (snow in accumulation zone) is redistributed over the ablation UIDs according to the ice volume distribution of the cells in the ablation zone. This process may eventually cause glaciers to
+disappear if the net ablation in a year is larger than the amount of ice available in the accumulation zone.</p>
+<div class="figure" id="id74" style="width: 50%">
+<span id="fig-mass-balance-simulation"></span><img alt="Glacier mass balance simulation" src="_images/mass_balance_simulation.png" />
+<p class="caption"><span class="caption-number">Figure 23 </span><span class="caption-text">Example of the simulation of the glacier’s average annual mass balance.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>Installation<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>This version can only be installed by downloading it from the <a class="reference external" href="https://github.com/WilcoTerink/SPHY">SPHY model GitHub repository</a>. A direct link to this release can be found <a class="reference external" href="https://github.com/WilcoTerink/SPHY/releases/tag/v2.2.0">here</a>.</p>
+</div>
+<div class="section" id="id13">
+<h3>PCRaster<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>PCRaster 4.1.0 is required for this version of the SPHY model. PCRaster 4.1.0 can be downloaded <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster-4-1-0/">here</a>.</p>
+</div>
+</div>
+<div class="section" id="release-2-1-1">
+<span id="id15"></span><h2>2.1.1<a class="headerlink" href="#release-2-1-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id16">
+<h3>About<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>The difference with respect to version 2.1.0 is that this version can be installed via <a class="reference internal" href="installation.html#installation-anaconda"><span class="std std-ref">Anaconda</span></a> or <a class="reference internal" href="installation.html#installation-pip"><span class="std std-ref">pip</span></a>.</p>
+</div>
+<div class="section" id="id17">
+<h3>Installation<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>Install via Anaconda:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">WilcoTerink</span> <span class="n">SPHY</span><span class="o">=</span><span class="mf">2.1</span><span class="o">.</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>or install via pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">SPHY</span><span class="o">==</span><span class="mf">2.1</span><span class="o">.</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>PCRaster<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>PCRaster 4.1.0 is required for this version of the SPHY model. PCRaster 4.1.0 can be downloaded <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster-4-1-0/">here</a>.</p>
+</div>
+</div>
+<div class="section" id="release-2-1-0">
+<span id="id20"></span><h2>2.1.0<a class="headerlink" href="#release-2-1-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id21">
+<h3>About<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id22">
+<h4>Background<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h4>
+<p>Although most dominant hydrological processes were integrated in previous SPHY release versions, the model was
+not yet capable of simulating reservoir inflow and outflow. In version 2.1.0, a reservoir module was developed for the SPHY model.</p>
+<p>Depending on the availability and quality of reservoir data, the user has two options for
+simulating reservoir in- and outflow in the SPHY model, being:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>A <a class="reference internal" href="#simple-reservoir-scheme"><span class="std std-ref">simple</span></a> reservoir scheme</li>
+<li>An <a class="reference internal" href="#advanced-reservoir-scheme"><span class="std std-ref">advanced</span></a> reservoir scheme</li>
+</ol>
+</div></blockquote>
+<p>The advanced reservoir scheme focuses on a target release, while the simple scheme calculates the outflow based on the actual and maximum
+reservoir storage. The reservoir schemes can be specified for each individual reservoir, meaning that simple and advanced reservoirs can exist independently from each other. The
+concepts of these schemes are described in the following two sections.</p>
+</div>
+<div class="section" id="simple-reservoir-scheme">
+<span id="id23"></span><h4>Simple reservoir scheme<a class="headerlink" href="#simple-reservoir-scheme" title="Permalink to this headline">¶</a></h4>
+<p>Many studies have implemented reservoir operation schemes into large-scale hydrological
+models. <a class="reference internal" href="references.html#meigh1999" id="id24">[29]</a> for example used a grid-based model and incorporated reservoir
+outflow using the following assumptions. For outflow regulation reservoirs, the outflow (<em>Q</em>)
+was proportional to the current storage (<em>S</em>) raised to the power of 1.5. For water storage reservoirs,
+any water released was used to meet demands and once the reservoir was filled, the outflow
+equaled the amount spilled <a class="reference internal" href="references.html#hanasaki2006" id="id25">[10]</a>. A study by <a class="reference internal" href="references.html#doll2003" id="id26">[5]</a> accounted for
+reservoir flow regulation <a class="reference internal" href="references.html#hanasaki2006" id="id27">[10]</a>, and modified the equation of <a class="reference internal" href="references.html#meigh1999" id="id28">[29]</a> to:</p>
+<div class="math notranslate nohighlight">
+\[Q_{out} = k_r \cdot S_{act} \cdot \left(\frac{S_{act}}{S_{max}}\right)^{1.5}\]</div>
+<p>with:</p>
+<div class="math notranslate nohighlight">
+\begin{eqnarray}
+Q_{out}&amp; =&amp; \text{reservoir outflow}\ [m^3 d^{-1}]\\
+k_r&amp; =&amp; \text{outflow coefficient}\ [d^{-1}]\\
+S_{act}&amp; = &amp; \text{actual reservoir storage}\ [m^3]\\
+S_{max}&amp; = &amp; \text{maximum reservoir storage}\ [m^3]
+
+\end{eqnarray}</div><p>This parametrization was developed for global lakes, but is also applied for reservoirs because
+of a lack of information on their management <a class="reference internal" href="references.html#hanasaki2006" id="id29">[10]</a>. For this reason this
+reservoir outflow equation was implemented in the SPHY model, and is referred to as the
+simple reservoir scheme hereafter. The outflow coefficient (k) is generally used as a calibration
+parameter. An example of the reservoir inflow, outflow and storage is illustrated in <a class="reference internal" href="#fig-simple-reservoir"><span class="std std-numref">Figure 24</span></a> for
+the simple reservoir scheme.</p>
+<div class="figure" id="id75" style="width: 80%">
+<span id="fig-simple-reservoir"></span><img alt="Example of reservoir inflow (Qin), outflow (Qout), and storage (Sact) as modelled by the simple reservoir scheme." src="_images/simple_reservoir_fig.png" />
+<p class="caption"><span class="caption-number">Figure 24 </span><span class="caption-text">Example of reservoir inflow (Qin), outflow (Qout), and storage (Sact) as modelled by the simple reservoir scheme.</span></p>
+</div>
+</div>
+<div class="section" id="advanced-reservoir-scheme">
+<span id="id30"></span><h4>Advanced reservoir scheme<a class="headerlink" href="#advanced-reservoir-scheme" title="Permalink to this headline">¶</a></h4>
+<p>If reservoir management information is available, then it is recommended to use the advanced
+reservoir scheme. This scheme uses the same approach as is implemented in the SWAT model
+<a class="reference internal" href="references.html#neitsch-2000" id="id31">[32]</a>. Within the advanced reservoir scheme the user can define a target
+reservoir release volume, which is season dependent. The user can define two different
+seasons per year, being a flood and dry season respectively. The target releases that need to
+be defined are the <em>MAX_FLOW</em> (maximum flow) for the flood season, and the <em>DEM_FLOW</em>
+(demand flow) for the dry season.</p>
+<p>In case of floods it is important to have a large storage capacity available. Therefore, the model
+tries to release the maximum amount of water from the reservoir during the flood season. The
+maximum amount of water that can be released depends on the user defined <em>MAX_FLOW</em>, the
+actual reservoir storage, and the maximum amount of water that is available between the
+emergency spillway and principal spillway. During the dry season, the model aims to keep the
+reservoir filled in order to have water available for its water users downstream. During this
+season, the reservoir outflow depends on the user defined <em>DEM_FLOW</em> (demand flow), the
+actual reservoir storage, and the maximum amount of water that is available between the
+emergency spillway and principal spillway. Reservoir outflow for both seasons is thus calculated
+as:</p>
+<div class="math notranslate nohighlight">
+\[Q_{out} = F \cdot \left(\frac{S_{act}}{RES_{evol} - RES_{pvol}}\right)\]</div>
+<p>with:</p>
+<div class="math notranslate nohighlight">
+\begin{eqnarray}
+Q_{out}&amp; =&amp; \text{reservoir outflow}\ [m^3 d^{-1}]\\
+F &amp; = &amp; \text{target release, being either}\ MAX\_FLOW\text{or}\ DEM\_FLOW\ [m^3 d^{-1}]\\
+S_{act}&amp; = &amp; \text{actual reservoir storage}\ [m^3]\\
+RES_{evol} &amp; = &amp; \text{reservoir storage capacity at emergency spillway}\ [m^3]\\
+RES_{pvol} &amp; = &amp; \text{reservoir storage capacity at principal spillway}\ [m^3]
+\end{eqnarray}</div><p>An example of the reservoir inflow, outflow and storage is illustrated in <a class="reference internal" href="#fig-advanced-reservoir"><span class="std std-numref">Figure 25</span></a> for the
+advanced reservoir scheme.</p>
+<div class="figure" id="id76" style="width: 80%">
+<span id="fig-advanced-reservoir"></span><img alt="Example of reservoir inflow (Qin), outflow (Qout), and storage (Sact) as modelled by the advanced reservoir scheme." src="_images/advanced_reservoir_fig.png" />
+<p class="caption"><span class="caption-number">Figure 25 </span><span class="caption-text">Example of reservoir inflow (Qin), outflow (Qout), and storage (Sact) as modelled by the advanced reservoir scheme. In this example
+the flood season starts the first of June, and ends by the end of December.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="id32">
+<h3>Installation<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<p>This version can only be installed by downloading it from the <a class="reference external" href="https://github.com/WilcoTerink/SPHY">SPHY model GitHub repository</a>. A direct link to this release can be found <a class="reference external" href="https://github.com/WilcoTerink/SPHY/releases/tag/v2.1.0">here</a>.</p>
+</div>
+<div class="section" id="id35">
+<h3>PCRaster<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<p>PCRaster 4.1.0 is required for this version of the SPHY model. PCRaster 4.1.0 can be downloaded <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster-4-1-0/">here</a>.</p>
+</div>
+</div>
+<div class="section" id="release-2-0-4">
+<span id="id37"></span><h2>2.0.4<a class="headerlink" href="#release-2-0-4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id38">
+<h3>About<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<p>The difference with respect to version 2.0.3 is that this version can be installed via <a class="reference internal" href="installation.html#installation-anaconda"><span class="std std-ref">Anaconda</span></a> or <a class="reference internal" href="installation.html#installation-pip"><span class="std std-ref">pip</span></a>.</p>
+</div>
+<div class="section" id="id39">
+<h3>Installation<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<p>Install via Anaconda:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">WilcoTerink</span> <span class="n">SPHY</span><span class="o">=</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">4</span>
+</pre></div>
+</div>
+<p>or install via pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">SPHY</span><span class="o">==</span><span class="mf">2.0</span><span class="o">.</span><span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id40">
+<h3>PCRaster<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
+<p>PCRaster 4.1.0 is required for this version of the SPHY model. PCRaster 4.1.0 can be downloaded <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster-4-1-0/">here</a>.</p>
+</div>
+</div>
+<div class="section" id="release-2-0-3">
+<span id="id42"></span><h2>2.0.3<a class="headerlink" href="#release-2-0-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id43">
+<h3>About<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h3>
+<p>Bug fix in the reporting function and in the calculation of snow storage and melt water stored in snow pack.</p>
+</div>
+<div class="section" id="id44">
+<h3>Installation<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
+<p>This version can only be installed by downloading it from the <a class="reference external" href="https://github.com/WilcoTerink/SPHY">SPHY model GitHub repository</a>. A direct link to this release can be found <a class="reference external" href="https://github.com/WilcoTerink/SPHY/releases/tag/v2.0.3">here</a>.</p>
+</div>
+<div class="section" id="id47">
+<h3>PCRaster<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h3>
+<p>PCRaster 4.1.0 is required for this version of the SPHY model. PCRaster 4.1.0 can be downloaded <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster-4-1-0/">here</a>.</p>
+</div>
+</div>
+<div class="section" id="release-2-0-2">
+<span id="id49"></span><h2>2.0.2<a class="headerlink" href="#release-2-0-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id50">
+<h3>About<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
+<p>Fixed critical error in the calculation of lateral flow. Lateral flow was originally calculated as:</p>
+<blockquote>
+<div><span class="math notranslate nohighlight">\(\left(rootlat + rootdrain\right) \cdot \left(1-exp^\frac{-1}{rootTT}\right)\)</span></div></blockquote>
+<p>This resulted in a continuous outflow of lateral flow with small values for <span class="math notranslate nohighlight">\(rootTT\)</span>, even if there was no lateral flow
+generated in the current timestep. This equation has been fixed to:</p>
+<blockquote>
+<div><span class="math notranslate nohighlight">\(rootlat \cdot \left(1-exp^\frac{-1}{rootTT}\right) + rootdrain \cdot exp\frac{-1}{rootTT}\)</span></div></blockquote>
+</div>
+<div class="section" id="id51">
+<h3>Installation<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h3>
+<p>This version can only be installed by downloading it from the <a class="reference external" href="https://github.com/WilcoTerink/SPHY">SPHY model GitHub repository</a>. A direct link to this release can be found <a class="reference external" href="https://github.com/WilcoTerink/SPHY/releases/tag/v2.0.2">here</a>.</p>
+</div>
+<div class="section" id="id54">
+<h3>PCRaster<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h3>
+<p>PCRaster 4.1.0 is required for this version of the SPHY model. PCRaster 4.1.0 can be downloaded <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster-4-1-0/">here</a>.</p>
+</div>
+</div>
+<div class="section" id="release-2-0-1">
+<span id="id56"></span><h2>2.0.1<a class="headerlink" href="#release-2-0-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id57">
+<h3>About<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h3>
+<p>There was an error in the calculation of the fractional rain. In <a class="reference internal" href="#release-2-0-0"><span class="std std-ref">version 2.0.0</span></a> the fractional rain was calculated by multiplying the rain with the
+rain fraction. This has been fixed by multiplying the rain with <span class="math notranslate nohighlight">\(\left(1-glacfrac\right)\)</span>.</p>
+</div>
+<div class="section" id="id58">
+<h3>Installation<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
+<p>This version can only be installed by downloading it from the <a class="reference external" href="https://github.com/WilcoTerink/SPHY">SPHY model GitHub repository</a>. A direct link to this release can be found <a class="reference external" href="https://github.com/WilcoTerink/SPHY/releases/tag/v2.0.1">here</a>.</p>
+</div>
+<div class="section" id="id61">
+<h3>PCRaster<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h3>
+<p>PCRaster 4.1.0 is required for this version of the SPHY model. PCRaster 4.1.0 can be downloaded <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster-4-1-0/">here</a>.</p>
+</div>
+</div>
+<div class="section" id="release-2-0-0">
+<span id="id63"></span><h2>2.0.0<a class="headerlink" href="#release-2-0-0" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id64">
+<h3>About<a class="headerlink" href="#id64" title="Permalink to this headline">¶</a></h3>
+<p>SPHY version 2.0.0 <a class="reference internal" href="references.html#terink2015" id="id65">[38]</a> is the first offical release of the SPHY model, and was published in <a class="reference external" href="https://www.geosci-model-dev.net/8/2009/2015/">Geoscientific Model Development</a>. All model concepts
+and processes are described in this <a class="reference external" href="https://www.geosci-model-dev.net/8/2009/2015/gmd-8-2009-2015.pdf">PDF</a>.</p>
+</div>
+<div class="section" id="id66">
+<h3>Installation<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h3>
+<p>This version can only be installed by downloading it from the <a class="reference external" href="https://github.com/WilcoTerink/SPHY">SPHY model GitHub repository</a>. A direct link to this release can be found <a class="reference external" href="https://github.com/WilcoTerink/SPHY/releases/tag/v2.0.0">here</a>.</p>
+</div>
+<div class="section" id="id69">
+<h3>PCRaster<a class="headerlink" href="#id69" title="Permalink to this headline">¶</a></h3>
+<p>PCRaster 4.1.0 is required for this version of the SPHY model. PCRaster 4.1.0 can be downloaded <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster-4-1-0/">here</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="faq.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="running.html" class="btn btn-neutral float-left" title="Running a model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Wilco Terink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Concepts &mdash; SPHY 2.2.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Applications" href="applications.html" />
+    <link rel="prev" title="Welcome to the documentation of the “Spatial Processes in HYdrology (SPHY) model”" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPHY
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Concepts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#soil-layers-and-fluxes">Soil layers and fluxes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#glaciers">Glaciers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#runoff-and-routing">Runoff and routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-input">Model input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-output">Model output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">Running a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPHY</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Concepts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/concepts.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="concepts">
+<h1>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The concepts described in this section correspond to the latest release (version 2.2.1).</p>
+<p class="last">Model concepts and processes of older releases may differ from the current release. It is therefore
+recommended to read the release notes of older versions if you plan to use
+an older release.</p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>SPHY is a spatially distributed leaky bucket type of model, and is applied on a cell-by-cell basis.
+The main terrestrial hydrological processes are described in a conceptual way so that changes
+in storages and fluxes can be assessed adequately over time and space. SPHY is written in the
+Python programming language using the <a class="reference external" href="http://pcraster.geo.uu.nl/">PCRaster</a>
+(<a class="reference internal" href="references.html#karssenberg2001" id="id1">[19]</a>, <a class="reference internal" href="references.html#karssenberg2010" id="id2">[20]</a>, <a class="reference internal" href="references.html#karssenberg2002" id="id3">[18]</a>) dynamic modeling
+framework.</p>
+<p>SPHY is grid based and cell values represent averages over a cell. For glaciers, sub-grid variability is taken into account: a cell
+can be glacier-free, partially glacierized, or completely covered by glaciers. The cell fraction not covered by glaciers consists of either land
+covered with snow or land that is free of snow. Land that is free of snow can consist of vegetation, bare soil, or open water. The dynamic vegetation
+module accounts for a time-varying fractional vegetation coverage, which affects processes such as interception, effective precipitation, and potential
+evapotranspiration. <a class="reference internal" href="#fig-concepts"><span class="std std-numref">Figure 1</span></a> provides a schematic overview of the SPHY modeling concepts.</p>
+<div class="figure" id="id9" style="width: 70%">
+<span id="fig-concepts"></span><img alt="SPHY model concepts" src="_images/SPHY_concepts.jpg" />
+<p class="caption"><span class="caption-number">Figure 1 </span><span class="caption-text">SPHY model concepts.</span></p>
+</div>
+</div>
+<div class="section" id="soil-layers-and-fluxes">
+<h2>Soil layers and fluxes<a class="headerlink" href="#soil-layers-and-fluxes" title="Permalink to this headline">¶</a></h2>
+<p>The soil column structure is similar to VIC (<a class="reference internal" href="references.html#liang1994" id="id4">[22]</a>, <a class="reference internal" href="references.html#liang1996" id="id5">[23]</a>), with two upper soil storages
+and a third groundwater storage. Their corresponding drainage components are surface runoff,
+lateral flow and baseflow. SPHY simulates for each cell precipitation in the form of rain or snow.
+Precipitation that falls on land surfaces can be intercepted by
+vegetation and evaporated in part or whole. A part of the liquid precipitation is transformed in surface runoff,
+whereas the remainder infiltrates into the soil. The resulting soil moisture is subject to
+evapotranspiration, depending on the soil properties and fractional vegetation cover, while the
+remainder contributes to river discharge by means of lateral flow from the first soil layer, and
+baseflow from the groundwater layer.</p>
+</div>
+<div class="section" id="glaciers">
+<h2>Glaciers<a class="headerlink" href="#glaciers" title="Permalink to this headline">¶</a></h2>
+<p>Depending on the temperature and a criticial temperature threshold, precipitation can either fall as rain or as snow.
+The snow storage is updated with snow accumulation and/or snowmelt. Melting of glacier ice contributes to the river discharge by means of a slow and fast component,
+being (i) percolation to the groundwater layer that eventually becomes baseflow, and (ii) direct runoff.</p>
+</div>
+<div class="section" id="runoff-and-routing">
+<h2>Runoff and routing<a class="headerlink" href="#runoff-and-routing" title="Permalink to this headline">¶</a></h2>
+<p>The cell-specific runoff, which becomes available for routing, is the sum of surface runoff,
+lateral flow, baseflow, snowmelt and glacier melt. If no lakes are present, then the user can choose a simple flow accumulation routing scheme:
+for each cell, the accumulated amount of water that flows out of the cell into its neighboring
+downstream cell is calculated. This accumulated amount is the amount of water in the cell itself
+plus the amount of water in upstream cells of the cell, and is calculated using the flow direction
+network. If lakes are present, then the fractional accumulation flux routing scheme is used;
+depending on the actual lake storage, a fraction of that storage becomes available for routing
+and is extracted from the lake, while the remaining part becomes the updated actual lake
+storage. The flux available for routing is routed in the same way as in the simple flow
+accumulation routing scheme.</p>
+</div>
+<div class="section" id="model-input">
+<h2>Model input<a class="headerlink" href="#model-input" title="Permalink to this headline">¶</a></h2>
+<p>As input, SPHY requires static data as well as dynamic data. For the static data, the most
+relevant are digital elevation model (DEM), land use type, glacier cover, lakes/reservoirs and
+soil characteristics. The main dynamic data consist of climate data, such as precipitation,
+temperature, and reference evapotranspiration. Since SPHY is grid based, optimal use of
+remote sensing data and global data sources can be made. For example, the Normalized
+Difference Vegetation Index (NDVI) (<a class="reference internal" href="references.html#tucker1979" id="id6">[40]</a>, <a class="reference internal" href="references.html#carlson1997a" id="id7">[4]</a>, <a class="reference internal" href="references.html#myneni1994" id="id8">[30]</a>)
+can be used to determine the leaf-area index (LAI) in order to estimate the
+growth stage of land cover. For setting up the model, streamflow data are not necessary.
+However, to undertake a proper calibration and validation procedure, flow data are required.
+The model could also be calibrated using actual evapotranspiration, soil moisture contents,
+and/or snow-covered area (SCA). An example application in which the
+SPHY model has been calibrated using <a class="reference external" href="https://modis.gsfc.nasa.gov/data/dataprod/mod10.php">MODIS</a> snow cover images
+can be found <a class="reference internal" href="applications.html#calibration-modis-snow-cover"><span class="std std-ref">here</span></a>.</p>
+</div>
+<div class="section" id="model-output">
+<h2>Model output<a class="headerlink" href="#model-output" title="Permalink to this headline">¶</a></h2>
+<p>The SPHY model provides a wealth of output variables that can be selected based on the
+preference of the user. Spatial output can be presented as maps of all the available hydrological
+processes, i.e., actual evapotranspiration, runoff generation (separated by its components), and
+groundwater recharge. These maps can be generated on a daily basis, but can also be
+aggregated at monthly or annual time periods. Time-series can be generated for each cell in the
+study area. Time-series often used are streamflow, actual evapotranspiration and recharge to
+the groundwater.</p>
+</div>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<p>SPHY enables the user to turn on/off modules (processes) that are relevant/irrelevant for the
+area of interest. This concept is very useful if the user is studying hydrological processes in
+regions where not all hydrological processes are relevant. A user may for example be interested
+in studying irrigation water requirements in central Africa. For this region, glacier and snow
+melting processes are irrelevant, and can thus be switched off. The advantages of turning off
+irrelevant modules are two-fold: (i) decrease model run time, and (ii) decrease the number of
+required model input data.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="applications.html" class="btn btn-neutral float-right" title="Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the documentation of the “Spatial Processes in HYdrology (SPHY) model”" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Wilco Terink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

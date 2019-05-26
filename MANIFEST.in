@@ -1,0 +1,2 @@
+# Include the sphy configuration file
+include SPHY/sphy_config.cfg

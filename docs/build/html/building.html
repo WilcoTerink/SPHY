@@ -1,0 +1,568 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Building a model &mdash; SPHY 2.2.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Running a model" href="running.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SPHY
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building a model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#clone">Clone</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#coordinate-reference-system-crs">Coordinate Reference System (CRS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extent">Extent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spatial-resolution">Spatial resolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-the-clone">Creating the clone</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#source-layer-is-already-in-the-desired-spatial-resolution">Source layer is already in the desired spatial resolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#source-layer-is-not-in-the-desired-spatial-resolution">Source layer is NOT in the desired spatial resolution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#digital-elevation-model-dem">Digital Elevation Model (DEM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#slope">Slope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#local-drain-direction-ldd">Local Drain Direction (ldd)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ldd">ldd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#accuflux">accuflux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lddrepair">lddrepair</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#locations">Locations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#catchment-and-sub-catchment">Catchment and sub-catchment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#glaciers">Glaciers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sphy-2-2-0-and-newer-releases">SPHY 2.2.0 and newer releases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#older-releases">Older releases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#other-static-input-maps">Other static input maps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="running.html">Running a model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="releases.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPHY</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Building a model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/building.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="building-a-model">
+<span id="building-model"></span><h1>Building a model<a class="headerlink" href="#building-a-model" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The SPHY model makes extensive use of the PCRaster functionalities. Many of the SPHY model input maps
+can therefore be created using command line based PCRaster commands. An overview of PCRaster
+functions can be found <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster/4.2.1/documentation/pcraster_manual/sphinx/index.html#functional-list-of-applications-and-operations">here</a>.</p>
+</div>
+<p>This page describes the steps that are required to create SPHY model input. There is no unique approach in
+creating SPHY model input, so the steps described in this section are just an example of how this can
+be done using QGIS.</p>
+<div class="section" id="clone">
+<span id="id1"></span><h2>Clone<a class="headerlink" href="#clone" title="Permalink to this headline">¶</a></h2>
+<p>The first and most important step in creating your model input is setting the Coordinate Reference System (CRS), the model extent, and the spatial resolution
+for the <strong>clone</strong> map. This is a map with <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> for all cells that
+are part of your model domain, and <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> for the cells not being part of your model domain.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is important to note that all the model input maps should have exactly the same CRS, extent (xmin, ymin, xmax, ymax), and
+spatial resolution (number of rows and columns) as the <a class="reference internal" href="#creating-clone"><span class="std std-ref">clone</span></a> map.</p>
+</div>
+<div class="section" id="coordinate-reference-system-crs">
+<h3>Coordinate Reference System (CRS)<a class="headerlink" href="#coordinate-reference-system-crs" title="Permalink to this headline">¶</a></h3>
+<p>Calculations in SPHY are metric, which means you need to make sure that all your model data is in a metric coordinate system.
+<a class="reference internal" href="#fig-utm-zones"><span class="std std-numref">Figure 10</span></a> shows the Universal Transverse Mercator (UTM) zones. You may use this image to pick the UTM zone for
+your area of interest. The link below provides a complete overview of the available Coordinate Reference Systems (CRSs):</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://spatialreference.org/ref/epsg/">http://spatialreference.org/ref/epsg/</a></li>
+</ul>
+</div></blockquote>
+<div class="figure" id="id12" style="width: 90%">
+<span id="fig-utm-zones"></span><img alt="UTM zones" src="_images/utm_zones.jpg" />
+<p class="caption"><span class="caption-number">Figure 10 </span><span class="caption-text">UTM zones.</span></p>
+</div>
+<p>If we for example would like to build a model for an area in the east of Nepal, we would select UTM zone 45N, which is the WGS84 UTM
+Zone 45 North projection (EPSG:32645) in QGIS.</p>
+</div>
+<div class="section" id="extent">
+<h3>Extent<a class="headerlink" href="#extent" title="Permalink to this headline">¶</a></h3>
+<p>The next step is to define the corners (xmin and ymax) for your area of interest. The easiest way to do this is to add
+a raster (e.g. a DEM) of your area of interest to QGIS. You need to make sure that this layer is in the same CRS
+as defined in the previous paragraph (e.g. EPSG:32645). If that is not the case, then you need to re-project (<a class="reference external" href="https://docs.qgis.org/2.8/en/docs/user_manual/processing_algs/gdalogr/gdal_projections/warpreproject.html">QGIS warp</a>)
+the layer to match the defined CRS.</p>
+<p>Right-click on the added layer and select properties and finally metadata. An example of how this may look like is shown in <a class="reference internal" href="#fig-map-metadata"><span class="std std-numref">Figure 11</span></a>.</p>
+<div class="figure" id="id13" style="width: 80%">
+<span id="fig-map-metadata"></span><img alt="QGIS Metadata" src="_images/qgis_map_metadata.png" />
+<p class="caption"><span class="caption-number">Figure 11 </span><span class="caption-text">QGIS metadata.</span></p>
+</div>
+<p>The example of <a class="reference internal" href="#fig-map-metadata"><span class="std std-numref">Figure 11</span></a> represents a raster with 271 columns (X) and 455 rows (Y). The four values at the bottom represent
+the layer extent in the order: <code class="docutils literal notranslate"><span class="pre">xmin,</span> <span class="pre">ymin</span> <span class="pre">:</span> <span class="pre">xmax,</span> <span class="pre">ymax</span></code>. It is not a problem if the added map is slightly larger than your area of interest.
+However, you need to make sure that the area for which you want to set-up your model fits well within the extent of the added layer. Note that
+we can also see that the layer is in the correct CRS: the line below “Layer Spatial Reference System” shows that the layer is in the WGS84 UTM Zone 45.</p>
+<p>Let’s refer to this layer as the <strong>source</strong> layer.</p>
+</div>
+<div class="section" id="spatial-resolution">
+<h3>Spatial resolution<a class="headerlink" href="#spatial-resolution" title="Permalink to this headline">¶</a></h3>
+<p>Now we are going to define the spatial resolution for our model. The choice of resolution will be a trade-off between the resolution of your input data,
+computational resources, the number of runs you intend to do and the required detail for your modelling purpose.</p>
+<p>Using the example from <a class="reference internal" href="#fig-map-metadata"><span class="std std-numref">Figure 11</span></a> we can see that xmax and xmin are 485,778 and 391,028, respectively. The total horizontal distance is
+therefore 485,778 - 391,028 = 94,750 m. The vertical distance is 3,133,760 - 3,020,010 = 113,750 m. If we would choose a spatial resolution of 250 m, then
+the number of columns would be 379, and the number of rows 455. Let’s decide we stay with the 250 m resolution. In that case we will have a model with
+379 x 455 = 172,445 grid cells.</p>
+</div>
+<div class="section" id="creating-the-clone">
+<span id="creating-clone"></span><h3>Creating the clone<a class="headerlink" href="#creating-the-clone" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="source-layer-is-already-in-the-desired-spatial-resolution">
+<span id="source-already-in-resolution"></span><h4>Source layer is already in the desired spatial resolution<a class="headerlink" href="#source-layer-is-already-in-the-desired-spatial-resolution" title="Permalink to this headline">¶</a></h4>
+<p>Because the layer we have added to QGIS in the example above is already in the desired spatial resolution of 250 m (see “Pixel Size” in <a class="reference internal" href="#fig-map-metadata"><span class="std std-numref">Figure 11</span></a>),
+we can use this map as the base for our clone map. As mentioned before, the clone map is a boolean map with <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> for all cells that
+are part of your model domain, and <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> for the cells not being part of your model domain.</p>
+<p>It is not unlikely that the map you have added to QGIS is a
+Digital Elevation Model (DEM) or other numerical map with floating numbers representing the value in each cell. Since the added map is not a boolean map, we need to convert this map from a float to
+a boolean map. Before we can do this, we need to make sure that the map is in the PCRaster <code class="docutils literal notranslate"><span class="pre">*.map</span></code> format. If your added map is in GeoTIFF format, then we need to convert
+the map from <code class="docutils literal notranslate"><span class="pre">*.tif</span></code> to <code class="docutils literal notranslate"><span class="pre">*.map</span></code> using <a class="reference external" href="https://docs.qgis.org/2.8/en/docs/user_manual/processing_algs/gdalogr/gdal_conversion/translate.html">QGIS Translate</a>.</p>
+<p>Let’s say we have translated a map with the name <code class="docutils literal notranslate"><span class="pre">dem.tif</span></code> to <code class="docutils literal notranslate"><span class="pre">dem.map</span></code>. This can then easily be converted into a boolean clone map by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcrcalc</span> <span class="n">clone</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">boolean</span><span class="p">(</span><span class="n">dem</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="source-layer-is-not-in-the-desired-spatial-resolution">
+<h4>Source layer is NOT in the desired spatial resolution<a class="headerlink" href="#source-layer-is-not-in-the-desired-spatial-resolution" title="Permalink to this headline">¶</a></h4>
+<p>If your added QGIS map is NOT in the desired resolution, then you first need to resample the map to the chosen spatial resolution. One way of doing this is using the <a class="reference external" href="http://www.saga-gis.org/saga_tool_doc/2.3.0/grid_tools_0.html">SAGA resampling</a>
+module from the QGIS Processing Toolbox (<a class="reference internal" href="#fig-saga-resampling-tool"><span class="std std-numref">Figure 12</span></a>).</p>
+<div class="figure" id="id14" style="width: 60%">
+<span id="fig-saga-resampling-tool"></span><img alt="SAGA resample" src="_images/SAGA_resample.png" />
+<p class="caption"><span class="caption-number">Figure 12 </span><span class="caption-text">SAGA resample.</span></p>
+</div>
+<p>Within the SAGA resample tool (<a class="reference internal" href="#fig-saga-resample"><span class="std std-numref">Figure 13</span></a>) you need to select the “Grid” you like to resample (dem2 in this example), the “Output extent”, and the “Cellsize” (250 m in this case). The fields
+for the “Interpolation Method” and output “Grid” can be left unchanged. It is important that the output extent is set correctly, which can easily be achieved by choosing the option “Use layer/canvas extent”.
+Select the same layer that you specified under “Grid” (because it has the correct extent, but not the correct resolution).</p>
+<div class="figure" id="id15" style="width: 100%">
+<span id="fig-saga-resample"></span><img alt="SAGA resample" src="_images/SAGA_resample_to_extent_resolution.png" />
+<p class="caption"><span class="caption-number">Figure 13 </span><span class="caption-text">Setting the grid cell size and use an existing layer to set the extent.</span></p>
+</div>
+<p>After clicking the “Run” button, a temporary grid is created and will be added to the QGIS canvas. This temporary grid can then be used as <strong>source</strong> layer, and the steps in the <a class="reference internal" href="#source-already-in-resolution"><span class="std std-ref">previous paragraph</span></a>
+can be followed to create the <strong>clone</strong> map.</p>
+</div>
+</div>
+</div>
+<div class="section" id="digital-elevation-model-dem">
+<span id="creating-dem"></span><h2>Digital Elevation Model (DEM)<a class="headerlink" href="#digital-elevation-model-dem" title="Permalink to this headline">¶</a></h2>
+<p>A DEM is a map with for each cell a floating number that represents the elevation in that cell. If your DEM is not in the same CRS as your clone, then you first need to re-project (<a class="reference external" href="https://docs.qgis.org/2.8/en/docs/user_manual/processing_algs/gdalogr/gdal_projections/warpreproject.html">QGIS warp</a>)
+the DEM to the CRS of the clone map. Check the metadata (same as <a class="reference internal" href="#fig-map-metadata"><span class="std std-numref">Figure 11</span></a>) of your DEM map to see if the extent and spatial resolution are the same as the clone map. If that is not the case, then
+you need to resample the DEM using the same approach as illustrated in <a class="reference internal" href="#fig-saga-resampling-tool"><span class="std std-numref">Figure 12</span></a> and <a class="reference internal" href="#fig-saga-resample"><span class="std std-numref">Figure 13</span></a>.</p>
+<p>Once your DEM is in the same CRS, extent, and spatial resolution as your clone, you can convert the DEM to <code class="docutils literal notranslate"><span class="pre">dem.map</span></code> using <a class="reference external" href="https://docs.qgis.org/2.8/en/docs/user_manual/processing_algs/gdalogr/gdal_conversion/translate.html">QGIS Translate</a>.</p>
+<p>If you want the DEM to only have values where your clone is <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, then you can achieve this by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcrcalc</span> <span class="n">dem_new</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="k">if</span><span class="p">(</span><span class="n">clone</span><span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="n">dem</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="slope">
+<h2>Slope<a class="headerlink" href="#slope" title="Permalink to this headline">¶</a></h2>
+<p>Once you have <code class="docutils literal notranslate"><span class="pre">dem.map</span></code> created, the <code class="docutils literal notranslate"><span class="pre">slope.map</span></code> can easily be created by:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcrcalc</span> <span class="n">slope</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">slope</span><span class="p">(</span><span class="n">dem</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="local-drain-direction-ldd">
+<h2>Local Drain Direction (ldd)<a class="headerlink" href="#local-drain-direction-ldd" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ldd">
+<h3>ldd<a class="headerlink" href="#ldd" title="Permalink to this headline">¶</a></h3>
+<p>An ldd is a local drain direction map with flow directions from each cell to its steepest downslope neighbour.
+To create a Local Drain Direction (ldd) map you need a <a class="reference internal" href="#creating-dem"><span class="std std-ref">DEM</span></a>. An ldd is then created using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcrcalc</span> <span class="n">ldd</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">lddcreate</span><span class="p">(</span><span class="n">dem</span><span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="mf">1e31</span><span class="p">,</span> <span class="mf">1e31</span><span class="p">,</span> <span class="mf">1e31</span><span class="p">,</span> <span class="mf">1e31</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">1e31</span></code> (default) arguments can be substituted depending on the orography of your catchment. More details about these
+arguments can be found <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster/4.2.1/documentation/pcraster_manual/sphinx/op_lddcreate.html?highlight=lddcreate">here</a>.
+In most cases, the <code class="docutils literal notranslate"><span class="pre">1e31</span></code> value satisfies the creation of the ldd.</p>
+<p>The ldd map in combination with the locations map can be used to create a <a class="reference internal" href="#catchment-subcatchment"><span class="std std-ref">catchment or sub-catchment map</span></a>.</p>
+</div>
+<div class="section" id="accuflux">
+<span id="id5"></span><h3>accuflux<a class="headerlink" href="#accuflux" title="Permalink to this headline">¶</a></h3>
+<p>A test to verify if your ldd has been created correctly is to calculate for each cell the number of upstream cells. This can be achieved using the <code class="docutils literal notranslate"><span class="pre">accuflux</span></code> function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcrcalc</span> <span class="n">accuflux</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">accuflux</span><span class="p">(</span><span class="n">ldd</span><span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can validate the <code class="docutils literal notranslate"><span class="pre">accuflux.map</span></code> by dragging it into QGIS and compare it with a shapefile of your river network (if you have this).</p>
+<p>More details about the <code class="docutils literal notranslate"><span class="pre">accuflux</span></code> function can be found <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster/4.2.1/documentation/pcraster_manual/sphinx/op_accuflux.html?highlight=accuflux">here</a>.</p>
+</div>
+<div class="section" id="lddrepair">
+<h3>lddrepair<a class="headerlink" href="#lddrepair" title="Permalink to this headline">¶</a></h3>
+<p>Each cell on the local drain direction map must have a pit (value of 5) at the end of its downstream path. If this is not the case for one or more cells on a local drain direction map,
+the map is called unsound. An unsound local drain direction map can not be used as input expression for the operations with local drain direction maps. Sometimes the unsound ldd can be
+fixed using <code class="docutils literal notranslate"><span class="pre">lddrepair</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcrcalc</span> <span class="n">lddsound</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">lddrepair</span><span class="p">(</span><span class="n">ldd</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>More details about <code class="docutils literal notranslate"><span class="pre">lddrepair</span></code> can be found <a class="reference external" href="http://pcraster.geo.uu.nl/pcraster/4.2.1/documentation/pcraster_manual/sphinx/op_lddrepair.html?highlight=lddrepair">here</a>.</p>
+</div>
+</div>
+<div class="section" id="locations">
+<h2>Locations<a class="headerlink" href="#locations" title="Permalink to this headline">¶</a></h2>
+<p>The locations map is required for reporting time-series of the various model fluxes (e.g. routed streamflow). As is shown in <a class="reference internal" href="#table-sphy-data-types"><span class="std std-numref">Table 2</span></a>, the <code class="docutils literal notranslate"><span class="pre">locations.map</span></code> is a <code class="docutils literal notranslate"><span class="pre">nominal</span></code> map. The
+easiest way to create a locations map is to have a point shapefile representing the various stations in your area of interest. For the locations map it is required to:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Give the stations a unique ID starting with 1 and the ID of the last station being equal to the total number of stations: e.g. if you have 4 stations for your model, you have to number them 1, 2, 3,
+and 4.</li>
+<li>If you want to report routed fluxes, you need to make sure the stations are located on the delineated stream network. A good practice of doing this is to use <a class="reference internal" href="#accuflux"><span class="std std-ref">accuflux</span></a> map
+as a background layer to check if the position of your stations is correct (see <a class="reference internal" href="#fig-stations-on-accuflux"><span class="std std-numref">Figure 14</span></a>).</li>
+</ol>
+</div></blockquote>
+<div class="figure" id="id16" style="width: 70%">
+<span id="fig-stations-on-accuflux"></span><img alt="Adding stations using the accuflux.map as a background" src="_images/stations_on_accuflux.png" />
+<p class="caption"><span class="caption-number">Figure 14 </span><span class="caption-text">Adding stations using the accuflux.map as a background. The stations in the shapefile are represented by the red stars.</span></p>
+</div>
+<p>Once the stations are numbered correctly, and are in the correct location, you again need to make sure that the map is in the same CRS, extent, and spatial resolution as your clone.map. Finally you need
+to make sure the map is saved as a nominal map. The steps are summarized under <a class="reference internal" href="#other-static-input-maps"><span class="std std-ref">“Other static input maps”</span></a>.</p>
+</div>
+<div class="section" id="catchment-and-sub-catchment">
+<span id="catchment-subcatchment"></span><h2>Catchment and sub-catchment<a class="headerlink" href="#catchment-and-sub-catchment" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">catchment.map</span></code> and <code class="docutils literal notranslate"><span class="pre">subcatchment.map</span></code> can be created once the <code class="docutils literal notranslate"><span class="pre">ldd.map</span></code> and <code class="docutils literal notranslate"><span class="pre">locations.map</span></code> are created correctly. These two maps can be created using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcrcalc</span> <span class="n">catchment</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">catchment</span><span class="p">(</span><span class="n">ldd</span><span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="n">locations</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcrcalc</span> <span class="n">subcatchment</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">subcatchment</span><span class="p">(</span><span class="n">ldd</span><span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="n">locations</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Obviously, names of the input maps may be different if you have assigned different names in one of the preceeding steps.</p>
+</div>
+<div class="section" id="glaciers">
+<span id="glacier-input"></span><h2>Glaciers<a class="headerlink" href="#glaciers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sphy-2-2-0-and-newer-releases">
+<span id="glacier-input-2-2-0"></span><h3>SPHY 2.2.0 and newer releases<a class="headerlink" href="#sphy-2-2-0-and-newer-releases" title="Permalink to this headline">¶</a></h3>
+<p>SPHY 2.2.0 comes with an improved glacier module with glaciers being mass-conserving. With this module you can have a better representation of the glaciers using a higher resolution DEM than the DEM
+you use to run your model. More information regarding this module can be found under <a class="reference internal" href="releases.html#release-2-2-0"><span class="std std-ref">version 2.2.0</span></a>.</p>
+<p>To run the model with this improved glacier module, you need to create the following input:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">GlacTable: a csv-file (<a class="reference internal" href="#fig-glac-table-ice-depths"><span class="std std-numref">Figure 15</span></a>) with the header <code class="docutils literal notranslate"><span class="pre">U_ID,</span> <span class="pre">MOD_ID,</span> <span class="pre">GLAC_ID,</span> <span class="pre">MOD_H,</span> <span class="pre">GLAC_H,</span> <span class="pre">DEBRIS,</span> <span class="pre">FRAC_GLAC,</span> <span class="pre">ICE_DEPTH</span></code>. The columns are described below:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">U_ID</span></code>: unique combination of model cell ID, glacier ID, glacier elevation, and debris/glacier free; i.e. each line in the csv-file should have a unique <code class="docutils literal notranslate"><span class="pre">U_ID</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">MOD_ID</span></code>: model cell ID a glacier cell belongs to. Different glaciers (multiple glacier IDs), or just one glacier but with different elevations (based on the higher
+resolution DEM) may occur within the same model cell ID, which means that in both cases that the model cell ID may occur on multiple lines in the csv-file.</li>
+<li><code class="docutils literal notranslate"><span class="pre">GLAC_ID</span></code>: glacier cells with the same glacier should have the same glacier ID.</li>
+<li><code class="docutils literal notranslate"><span class="pre">MOD_H</span></code>: DEM elevation of the model ID grid cell.</li>
+<li><code class="docutils literal notranslate"><span class="pre">GLAC_H</span></code>: DEM elevation of the glacier ID grid cell.</li>
+<li><code class="docutils literal notranslate"><span class="pre">DEBRIS</span></code>: Flag indicating whether the particular glacier grid cell has debris (<code class="docutils literal notranslate"><span class="pre">TRUE</span> <span class="pre">=</span> <span class="pre">1</span></code>), or is debris-free (<code class="docutils literal notranslate"><span class="pre">FALSE</span> <span class="pre">=</span> <span class="pre">0</span></code>).</li>
+<li><code class="docutils literal notranslate"><span class="pre">FRAC_GLAC</span></code>: Fraction of the model grid cell ID that is covered with glacier grid cell ID. The total fraction of all glacier grid cell IDs belonging to the same model grid cell ID may
+never exceed 1.</li>
+<li><code class="docutils literal notranslate"><span class="pre">ICE_DEPTH</span></code>: Thickness of the glacier ID grid cell.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">ModelID: Nominal map with a unique ID for each model grid cell (same CRS, extent, and spatial resolution as the clone map).</p>
+</li>
+<li><p class="first">GlacID: Nominal map with a unique ID for each glacier (same CRS, extent, and spatial resolution as the clone map).</p>
+</li>
+</ul>
+</div></blockquote>
+<p>An example of a few lines in the GlacTable is shown in <a class="reference internal" href="#fig-glac-table-ice-depths"><span class="std std-numref">Figure 15</span></a>. As you can see there are four different glaciers shown here, each with their unique <code class="docutils literal notranslate"><span class="pre">GLAC_ID</span></code>. Each line has a
+unique <code class="docutils literal notranslate"><span class="pre">U_ID</span></code> as is required. You can see that the glacier with <code class="docutils literal notranslate"><span class="pre">GLAC_ID</span></code> equals 17 is the largest of the four, covering ten unique model grid cells (<code class="docutils literal notranslate"><span class="pre">MOD_ID</span></code>). What you also may notice is that
+this glacier may occur twice within the same model ID grid cell (e.g. 62850). This is because part of the glacier in that model grid cell is debris-covered (with a glacier fraction of 0.92), and the
+rest of that glacier in that model cell is debris-free (fraction 0.08). This table also illustrates that the sum of all glacier fractions within the same model grid cell never exceeds one (it can be less).
+The elevation (<code class="docutils literal notranslate"><span class="pre">MOD_H</span></code>) for each model ID grid cell is unique for that particular model ID grid cell.</p>
+<div class="figure" id="id17" style="width: 70%">
+<span id="fig-glac-table-ice-depths"></span><img alt="Example of glacier table." src="_images/glac_table_ice_depths.png" />
+<p class="caption"><span class="caption-number">Figure 15 </span><span class="caption-text">Example of a few lines in the GlacTable csv-file. For easy reading the glaciers with the same ID are given the same background color.</span></p>
+</div>
+<p>To be able to construct the required maps and the glacier table csv-file you need:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A shapefile with the outlines of the glaciers within your area of interest. The <a class="reference external" href="https://www.glims.org/RGI/">Randolph Glacier Inventory (RGI)</a> is a recommended source for this.</li>
+<li>A classification of which areas are debris-free and which are debris-covered.</li>
+<li>A high-resolution DEM.</li>
+</ul>
+</div></blockquote>
+<p>A methodology to estimate ice-thickness is using the <strong>GlabTop2 model</strong>, which is described in <a class="reference internal" href="references.html#frey2014" id="id8">[8]</a>.</p>
+</div>
+<div class="section" id="older-releases">
+<h3>Older releases<a class="headerlink" href="#older-releases" title="Permalink to this headline">¶</a></h3>
+<p>For older SPHY model versions, you need to create the <code class="docutils literal notranslate"><span class="pre">glacfrac.map</span></code>. This map can be calculated from a vector file with glacier outlines (e.g. the <a class="reference external" href="https://www.glims.org/RGI/">RGI</a>). Follow the
+steps below to convert the glacier outlines to the <code class="docutils literal notranslate"><span class="pre">glacfrac.map</span></code>:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>In QGIS from the Processing toolbox, select the “v.to.rast.value” tool (<a class="reference internal" href="#fig-v-to-rast-value"><span class="std std-numref">Figure 16</span></a>).</li>
+<li>Select your glacier outlines as vector input layer and convert it to raster at the same extent of
+the clone map. Set the cellsize at a lower value than your model resolution. For example, if your
+model cell size is 200 m, select 20 m for the converted raster. Set 1 as the raster value.</li>
+<li>The “nodata” values need to be reclassified to zeros. To do this use SAGA’s Reclassify tool (<a class="reference internal" href="#fig-saga-reclassify-toolbox"><span class="std std-numref">Figure 17</span></a>)
+from the Processing toolbox.</li>
+<li>In the dialog box (<a class="reference internal" href="#fig-saga-reclassify-grid-values"><span class="std std-numref">Figure 18</span></a>) set all values to 0.0, and set “replace no data values” to “Yes”, set “new value
+for no data values” to 0.0 and set “replace other values” to “No”. Select an output filename and
+click “Run”.</li>
+<li>Now we aggregate the fine resolution grid with glaciers to the model resolution. This can be done using the “r.resamp.stats” toolbox (<a class="reference internal" href="#fig-grass-r-resamp-stats-toolbox"><span class="std std-numref">Figure 19</span></a>).
+In the dialog box, set the fine resolution glacier grid (result step 4) as input raster layer and choose aggregation method “average”. Use the extent from the clone map in the
+“Grass region cellsize” field, and set the cell size to the model resolution (clone).</li>
+<li>The last step involves converting the map from step 5 into a PCRaster map.</li>
+</ol>
+</div></blockquote>
+<div class="figure" id="id18" style="width: 70%">
+<span id="fig-v-to-rast-value"></span><img alt="v.to.rast.value toolbox in QGIS" src="_images/v_to_rast_value_toolbox.png" />
+<p class="caption"><span class="caption-number">Figure 16 </span><span class="caption-text">v.to.rast.value toolbox in QGIS.</span></p>
+</div>
+<div class="figure" id="id19" style="width: 70%">
+<span id="fig-saga-reclassify-toolbox"></span><img alt="SAGA reclassify toolbox" src="_images/SAGA_reclassify.png" />
+<p class="caption"><span class="caption-number">Figure 17 </span><span class="caption-text">SAGA reclassify toolbox.</span></p>
+</div>
+<div class="figure" id="id20" style="width: 70%">
+<span id="fig-saga-reclassify-grid-values"></span><img alt="SAGA reclassify toolbox" src="_images/SAGA_reclassify_grid_values.png" />
+<p class="caption"><span class="caption-number">Figure 18 </span><span class="caption-text">Reclassify “nodata” values to zero using the SAGA reclassify toolbox.</span></p>
+</div>
+<div class="figure" id="id21" style="width: 70%">
+<span id="fig-grass-r-resamp-stats-toolbox"></span><img alt="GRASS resamp stats toolbox" src="_images/GRASS_r_resamp_stats_toolbox.png" />
+<p class="caption"><span class="caption-number">Figure 19 </span><span class="caption-text">r.resamp.stats toolbox.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="other-static-input-maps">
+<span id="id9"></span><h2>Other static input maps<a class="headerlink" href="#other-static-input-maps" title="Permalink to this headline">¶</a></h2>
+<p>Other static input maps (e.g. the soil maps and land use maps) can be created the same way as the DEM. The steps to create other static input maps are always the same:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Make sure that the CRS of your map in QGIS is the same as the CRS of your <a class="reference internal" href="#clone"><span class="std std-ref">clone map</span></a>. If this is not the case, then you need to re-project (<a class="reference external" href="https://docs.qgis.org/2.8/en/docs/user_manual/processing_algs/gdalogr/gdal_projections/warpreproject.html">QGIS warp</a>)
+the map to the CRS of the clone map.</p>
+</li>
+<li><p class="first">Check the metadata (same as <a class="reference internal" href="#fig-map-metadata"><span class="std std-numref">Figure 11</span></a>) of your map to see if the extent and spatial resolution are the same as the clone map. If that is not the case, then
+you need to resample the map using the same approach as illustrated in <a class="reference internal" href="#fig-saga-resampling-tool"><span class="std std-numref">Figure 12</span></a> and <a class="reference internal" href="#fig-saga-resample"><span class="std std-numref">Figure 13</span></a>.</p>
+</li>
+<li><p class="first">If your map is not in the PCRaster <code class="docutils literal notranslate"><span class="pre">*.map</span></code> format, but for example in the <code class="docutils literal notranslate"><span class="pre">*.tif</span></code> format, then you have to convert it using <a class="reference external" href="https://docs.qgis.org/2.8/en/docs/user_manual/processing_algs/gdalogr/gdal_conversion/translate.html">QGIS Translate</a>.</p>
+</li>
+<li><p class="first">Once your map is in the required PCRaster format, then the last step is to make sure the data type of the map matches the data type of the specific SPHY input map. For example, a DEM requires <code class="docutils literal notranslate"><span class="pre">scalar</span></code> data type, while a land use map
+should be <code class="docutils literal notranslate"><span class="pre">nominal</span></code>. Data types can easily be converted using the cmd line. A scalar map <code class="docutils literal notranslate"><span class="pre">A.map</span></code> can for example easily be converted to a nominal <code class="docutils literal notranslate"><span class="pre">B.map</span></code> using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcrcalc</span> <span class="n">B</span><span class="o">.</span><span class="n">map</span> <span class="o">=</span> <span class="n">nominal</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">map</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>An overview of the various SPHY model data types is shown in <a class="reference internal" href="#table-sphy-data-types"><span class="std std-numref">Table 2</span></a>.</p>
+</li>
+</ol>
+</div></blockquote>
+<table border="1" class="docutils" id="id22">
+<span id="table-sphy-data-types"></span><caption><span class="caption-number">Table 2 </span><span class="caption-text">Map data types used in the SPHY model.</span><a class="headerlink" href="#id22" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="12%" />
+<col width="36%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Data type</th>
+<th class="head">Domain</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">boolean</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">TRUE</span></code> <span class="math notranslate nohighlight">\([1]\)</span>, <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> <span class="math notranslate nohighlight">\([0]\)</span></td>
+<td><code class="docutils literal notranslate"><span class="pre">clone.map</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">nominal</span></code></td>
+<td><span class="math notranslate nohighlight">\([-2^{31}..2^{31}]\)</span> integers</td>
+<td><code class="docutils literal notranslate"><span class="pre">landuse.map</span></code>, <code class="docutils literal notranslate"><span class="pre">locations.map</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">scalar</span></code></td>
+<td><span class="math notranslate nohighlight">\([-10^{37}..10^{37}]\)</span> floats</td>
+<td><code class="docutils literal notranslate"><span class="pre">dem.map</span></code>, <code class="docutils literal notranslate"><span class="pre">slope.map</span></code>, <code class="docutils literal notranslate"><span class="pre">sub_field.map</span></code>, <code class="docutils literal notranslate"><span class="pre">glacfrac.map</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">ldd</span></code></td>
+<td><span class="math notranslate nohighlight">\([1..9]\)</span> integer of drain direction</td>
+<td><code class="docutils literal notranslate"><span class="pre">ldd.map</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="running.html" class="btn btn-neutral float-right" title="Running a model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013, Wilco Terink
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
