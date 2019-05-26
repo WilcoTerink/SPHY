@@ -1,0 +1,3 @@
+# Include the sphy configuration file
+include SPHY/sphy_config.cfg
+include SPHY/glac_table_with_iceDepths.csv
