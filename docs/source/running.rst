@@ -57,7 +57,7 @@ The steps that are needed to run the model are:
   
   5. You can now run the model via:: 
   
-         python c:\my_model\sphy.py -i c:\my_model\SPHY_config.cfg
+         python c:\my_model\main.py -i c:\my_model\SPHY_config.cfg
          
 
 

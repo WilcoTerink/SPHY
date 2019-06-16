@@ -307,7 +307,10 @@ To be able to construct the required maps and the glacier table csv-file you nee
   + A high-resolution DEM.
   
 
-A methodology to estimate ice-thickness is using the **GlabTop2 model**, which is described in :cite:`Frey2014`.
+A methodology to estimate ice-thickness is using the **GlabTop2 model**, which is described in :cite:`Frey2014`. **GlabTop2-py** is a Python PCRaster package that can be used to
+create a spatial map of the ice-tickness distribution for each glacier in the model domain. A link to GlabTop2-py can be found below:
+
+    https://glabtop2-py.readthedocs.io/en/latest/
 
 
 Older releases

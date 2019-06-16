@@ -57,9 +57,9 @@ this is because Anaconda checks for dependencies, installs missing dependencies 
 SPHY model release, a different Anaconda Python distribution may be required (see :ref:`Releases <releases>`). Use one of the links below to
 download the required Anaconda Python distribution:
 
-    + `Python 2.7 version <https://repo.anaconda.com/archive/Anaconda2-2019.03-MacOSX-x86_64.pkg>`_
+    + `Python 2.7 version <https://repo.anaconda.com/archive/Anaconda2-2019.03-Windows-x86_64.exe>`_
     
-    + `Python 3.7 version <https://repo.anaconda.com/archive/Anaconda3-2019.03-MacOSX-x86_64.pkg>`_
+    + `Python 3.7 version <https://repo.anaconda.com/archive/Anaconda3-2019.03-Windows-x86_64.exe>`_
     
 .. _installation_anaconda:
 
